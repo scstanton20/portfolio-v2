@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { Router } from "next/router";
 
-
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { useEffect } from "react";
@@ -14,6 +13,7 @@ import { useEffect } from "react";
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
+
 
 function MyApp({ Component, pageProps, router }: AppProps) {
     useEffect(() => {

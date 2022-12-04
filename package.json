@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browser": {
+    "fs": false
+  },
   "dependencies": {
     "@portabletext/react": "^2.0.0",
     "@sanity/client": "^3.4.1",
@@ -16,6 +19,7 @@
     "@tippyjs/react": "^4.2.6",
     "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^5.1.26",
+    "dotenv": "^16.0.3",
     "framer-motion": "^7.6.15",
     "groq": "^2.33.2",
     "next": "13.0.5",

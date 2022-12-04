@@ -17,7 +17,7 @@ COPY postcss.config.js ./postcss.config.js
 COPY package.json package-lock.json ./
 COPY --from=deps /app/node_modules ./node_modules
 COPY sanity.js ./sanity.js
-COPY .env.local ./.env.local
+COPY .env ./.env
 
 COPY src ./src
 COPY public ./public

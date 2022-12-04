@@ -75,7 +75,6 @@ export default function ContactUs() {
       setEmail("");
       setMessage("");
     }
-    console.log(fullname, email, message);
   };
   return (
     <div className="md:col-span-2 row-span-3 bg-opacity-50 bg-white dark:bg-white/5 rounded-md p-4 border border-zinc-800/50">

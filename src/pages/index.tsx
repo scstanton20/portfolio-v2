@@ -29,10 +29,10 @@ export default function Home({ projects, certifications }: Props) {
                 technology brings to impactful storytelling and the effect it will have on the theme park industry.
             </p>
 
-            <h2 className="font-medium text-3xl mb-4">Licenses & Certifications 🏆</h2>
+            <h2 className="font-medium text-3xl mb-4">Certifications 🏆</h2>
             <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-6">
                 Through my time as a student and working at different business, I have accumulated some pretty interesting
-                licenses and certifications. Hover your mouse over each icon to find out the details.
+                certifications. Hover your mouse over each icon to find out the details!
             </p>
             <div className="w-full flex flex-wrap flex-row justify-center p-1 border border-slate-800 rounded-md bg-white/10 dark:bg-black/10 mb-12">
                 {certifications.map(certification => (

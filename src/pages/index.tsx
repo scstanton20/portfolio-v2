@@ -62,12 +62,12 @@ export default function Home({ projects, certifications }: Props) {
                                 {project.title}
                                 <img className="w-12 h-12 rounded-full" src={urlFor(project.image).url()!} alt=""/>
                             </p>
-                            <p className="text-sm text-gray-800/70 dark:text-gray-100/70">{project.description}</p>
+                            <p className=" text-gray-700 dark:text-gray-300 text-sm">{project.description}</p>
                             <div className= "mt-auto">
-                                <p className="flex gap-2 flex-row items-center text-gray-700 dark:text-gray-300 text-sm">
+                                <p className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
                                     <BiMap className="h-4 w-4" /> {project.place}
                                 </p>   
-                                <p className="flex gap-2 flex-row items-center text-gray-700 dark:text-gray-300 text-sm">
+                                <p className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
                                     <BiCalendarCheck className="h-4 w-4" /> Completed in {project.dateCompleted}
                                 </p>
                             </div>

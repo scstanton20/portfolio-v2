@@ -36,23 +36,22 @@ export default function Home({ projects, certifications }: Props) {
             </p>
             <div className="w-full flex flex-wrap flex-row justify-center p-1 border border-slate-800 rounded-md bg-white/10 dark:bg-black/10 mb-12">
                 {certifications.map(certification => (
-                    <li className="flex p-2" key={certification._id}> 
-                        <div id="parent">
-                            <Tippy className="text-sm flex font-bold justify-between" content={<>{certification.title} <br /> Issued by {certification.issuer} <br /> Received on {certification.receivedDate} </>} interactive={true} placement={'bottom'} trigger={"mouseenter"}>
-                                <button>
-                                    <img className="w-11 h-11 rounded-full" src={urlFor(certification.image).url()!} alt="" />
-                                </button>
-                            </Tippy>
-                        </div>
-                    </li>
+                    <ul className="flex p-2" key={certification._id}>
+                            <div id="parent">
+                                <Tippy className="text-sm flex font-bold justify-between" content={<>{certification.title} <br /> Issued by {certification.issuer} <br /> Received on {certification.receivedDate} </>} interactive={true} placement={'bottom'} trigger={"mouseenter"}>
+                                    <button>
+                                        <img className="w-11 h-11 rounded-full" src={urlFor(certification.image).url()!} alt="" />
+                                    </button>
+                                </Tippy>
+                            </div>
+                    </ul>
                 ))}
             </div>
             
             <h2 className="font-medium text-3xl mb-4">Projects 🛠️</h2>
             <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-6">
-                During my time working, going to school, and in free time, I love working on projects that help myself, my co-workers, and my friends
-                with something that make our lives more diffiult. I do this by using my technological skills to come up with innovative solutions to our problems.
-                Below are some of these projects.
+            During my time at work, at school, and in my free time, I love working on projects that make things work better for my co-workers, my friends and me. 
+            I enjoy using my technological skills to create innovative solutions to our problems and create new opportunities. Included below are some of these projects.
             </p>
             <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-4">
                 {projects.map(project => (
@@ -71,7 +70,6 @@ export default function Home({ projects, certifications }: Props) {
                                     <BiCalendarCheck className="h-4 w-4" /> Completed in {project.dateCompleted}
                                 </p>
                             </div>
-                            
                         </div>
                     </Link>
                 ))}

@@ -38,7 +38,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
                 />
                 <meta name="description" content="Sam Stanton - Virginia Tech Student" />
                 <meta name="author" content="Sam Stanton" />
-                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
             </Head>
 
             <div className="text-black dark:text-white flex flex-row justify-center w-full h-full bg-gradient-to-bl from-white to-[#fff] dark:from-black dark:to-[#0d131f] min-h-screen">

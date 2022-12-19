@@ -21,7 +21,6 @@ COPY .env ./.env
 
 COPY src ./src
 COPY public ./public
-
 RUN npm run build
 
 FROM node:16-alpine AS runner

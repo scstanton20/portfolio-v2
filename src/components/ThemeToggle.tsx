@@ -30,6 +30,7 @@ const ThemeToggle = () => {
     return (
         <Tippy content={"Toggle Light/Dark"} interactive={true} placement={"bottom"} trigger={"mouseenter"}>
             <button
+                aria-label="Theme-Toggle"
                 className="p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer"
                 onClick={() => changeTheme(theme)}
             >

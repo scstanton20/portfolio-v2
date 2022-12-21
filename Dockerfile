@@ -18,9 +18,9 @@ COPY package.json package-lock.json ./
 COPY --from=deps /app/node_modules ./node_modules
 COPY sanity.js ./sanity.js
 COPY .env ./.env
-
 COPY src ./src
 COPY public ./public
+
 RUN npm run build
 
 FROM node:16-alpine AS runner
@@ -35,6 +35,8 @@ COPY --from=builder /app/public ./public
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+RUN rm ./.env
 
 USER nextjs
 CMD ["node", "server.js"]

@@ -16,6 +16,7 @@
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "@sendgrid/mail": "^7.7.0",
+    "@socialgouv/matomo-next": "^1.6.1",
     "@tippyjs/react": "^4.2.6",
     "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^5.1.26",

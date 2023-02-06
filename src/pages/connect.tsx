@@ -25,6 +25,9 @@ const Connect = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 mb-20">
                 <MessageForm />
                 <div className="row-start-1 md:row-auto">
+                    <div className="h-28px w-28px mb-4 md:mx-10">
+                        <img className="rounded-full " src="photo.png" />
+                    </div>
                     <ContactLink
                         name="sam@scstanton.dev"
                         icon={<FiMail className="w-6 h-6 text-gray-400" />}

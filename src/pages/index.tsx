@@ -67,7 +67,7 @@ export default function Home({ projects, certifications }: Props) {
                                     <BiMap className="h-4 w-4" /> {project.place}
                                 </p>   
                                 <p className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
-                                    <BiCalendarCheck className="h-4 w-4" /> Completed in {project.dateCompleted}
+                                    <BiCalendarCheck className="h-4 w-4" /> Status: {project.dateCompleted}
                                 </p>
                             </div>
                         </div>

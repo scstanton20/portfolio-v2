@@ -17,6 +17,11 @@ module.exports = {
           source: '/status',
           destination: 'https://status.scstanton.dev',
           permanent: true,
+        },
+        {
+          source:'/logout',
+          destination: 'https://auth.scstanton.dev/if/flow/default-invalidation-flow/?next=%2F',
+          permanent: true
         }
       ]
     },

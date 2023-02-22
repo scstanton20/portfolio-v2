@@ -77,6 +77,7 @@ const Nav = () => {
                 <div className="flex flex-row items-center justify-between gap-2">
                     <ThemeToggle />
                     <LandingButton name="Home" link="/" selected={router.pathname === "/"} />
+                    <LandingButton name="Experiences" link="/experiences" selected={router.pathname === "/experiences"} />
                     <LandingButton name="Connect" link="/connect" selected={router.pathname === "/connect"} />
                 </div>
                 <div className="flex flex-row items-center justify-center gap-2 xs:gap-4 hover:bg-sky-700">
@@ -147,7 +148,12 @@ const Nav = () => {
                                     selected={router.pathname === "/"}
                                     onClick={() => setMenuOpen(false)}
                                 />
-                                
+                                <MobileLandingButton
+                                    name="Experiences"
+                                    link="/experiences"
+                                    selected={router.pathname === "/experiences"}
+                                    onClick={() => setMenuOpen(false)}
+                                />
                                 <MobileLandingButton
                                     name="Connect"
                                     link="/connect"

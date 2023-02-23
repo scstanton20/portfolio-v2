@@ -3,7 +3,7 @@ FROM node:16-alpine AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+RUN NODE_ENV=production npm install --frozen-lockfile
 
 FROM node:16-alpine As builder
 ARG TARGETPLATFORM=linux/amd64

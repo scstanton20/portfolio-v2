@@ -21,7 +21,7 @@ jobs:
           NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY}}
-      - name: Upload Next build          # Upload the artifact
+      - name: Upload Next build
         uses: actions/upload-artifact@v2
         with:
           name: build
@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v3
-      - name: Download next build       # Download the above uploaded artifact
+      - name: Download next build      
         uses: actions/download-artifact@v2
         with:
           name: build
@@ -45,9 +45,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and Push Image
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          context: .
-          tags: scstanton/portfolio-v2:latest
+      

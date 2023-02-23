@@ -33,6 +33,7 @@ jobs:
           push: true
           context: .
           tags: scstanton/portfolio-v2:latest
+        env:
           secrets: |
             NEXT_PUBLIC_MATOMO_SITE_ID=${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
             NEXT_PUBLIC_MATOMO_URL=${{ secrets.NEXT_PUBLIC_MATOMO_URL }}

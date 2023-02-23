@@ -8,7 +8,6 @@ node_modules/
 .dockerignore
 .env.template
 docker-compose.yml
-Dockerfile
 notes.md
 npm-debug.log
 README.md

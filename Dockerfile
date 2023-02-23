@@ -20,20 +20,16 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public
-COPY DOCKERFILE ./DOCKERFILE
+#COPY DOCKERFILE ./DOCKERFILE
 
 FROM node:16-alpine AS runner
 WORKDIR /app
-
-ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./
 
 USER nextjs
 CMD ["node", "server.js"]

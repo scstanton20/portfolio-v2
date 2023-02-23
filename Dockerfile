@@ -21,11 +21,11 @@ COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public
 
-RUN --mount=type=secret,id=SENDGRID_API_KEY \
-    --mount=type=secret,id=NEXT_PUBLIC_SANITY_PROJECT_ID \
-    --mount=type=secret,id=NEXT_PUBLIC_SANITY_DATASET \
-    --mount=type=secret,id=NEXT_PUBLIC_MATOMO_URL \
-    --mount=type=secret,id=NEXT_PUBLIC_MATOMO_SITE_ID \
+RUN --mount=type=secret,id=SENDGRID_API_KEY, target=/run/secrets \
+    --mount=type=secret,id=NEXT_PUBLIC_SANITY_PROJECT_ID, target=/run/secrets \
+    --mount=type=secret,id=NEXT_PUBLIC_SANITY_DATASET, target=/run/secrets \
+    --mount=type=secret,id=NEXT_PUBLIC_MATOMO_URL, target=/run/secrets \
+    --mount=type=secret,id=NEXT_PUBLIC_MATOMO_SITE_ID, target=/run/secrets \
     export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY) && \
     export NEXT_PUBLIC_SANITY_PROJECT_ID=$(cat /run/secrets/NEXT_PUBLIC_SANITY_PROJECT_ID) && \
     export NEXT_PUBLIC_SANITY_DATASET=$(cat /run/secrets/NEXT_PUBLIC_SANITY_DATASET) && \

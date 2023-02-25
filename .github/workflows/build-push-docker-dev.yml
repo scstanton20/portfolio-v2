@@ -24,10 +24,4 @@ jobs:
         uses: isbang/compose-action@v1.4.1
         with:
           compose-file: "./docker-compose.yml"
-        env:
-          NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
-          NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}
-          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY}}
       

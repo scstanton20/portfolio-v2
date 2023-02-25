@@ -16,10 +16,11 @@ COPY next.config.js ./next.config.js
 COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public
-COPY .next/static ./.next/static
-COPY .next/standalone ./.next/standalone
 
 RUN npm run build --production
+
+COPY .next/static ./.next/static
+COPY .next/standalone ./.next/standalone
 
 FROM node:18-alpine AS runner
 WORKDIR /app

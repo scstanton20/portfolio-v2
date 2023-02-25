@@ -17,6 +17,7 @@ COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public
 COPY typings.d.ts ./typings.d.ts
+COPY tsconfig.json ./tsconfig.json
 
 RUN npm run build --production
 

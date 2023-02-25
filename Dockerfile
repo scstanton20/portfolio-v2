@@ -6,7 +6,6 @@ COPY package.json package-lock.json ./
 RUN NODE_ENV=production npm install --frozen-lockfile
 
 FROM node:16-alpine As builder
-ARG TARGETPLATFORM=linux/amd64
 ENV NODE_ENV=production
 
 WORKDIR /app

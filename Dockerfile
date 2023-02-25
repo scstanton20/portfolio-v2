@@ -16,6 +16,7 @@ COPY next.config.js ./next.config.js
 COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public
+COPY typings.d.ts ./typings.d.ts
 
 RUN npm run build --production
 

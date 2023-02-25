@@ -10,6 +10,7 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
+COPY next.config.js ./next.config.js
 COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public

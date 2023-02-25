@@ -9,7 +9,7 @@ FROM node:16-alpine As builder
 ENV NODE_ENV=production
 
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=base /app/node_modules ./node_modules
 COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public

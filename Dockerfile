@@ -5,11 +5,12 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN NODE_ENV=production npm install --frozen-lockfile
 
-FROM node:16-alpine As builder
+FROM node:18-alpine As builder
 ENV NODE_ENV=production
 
 WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/package.json ./package.json
 
 RUN npm run build --production
 
@@ -20,7 +21,7 @@ COPY public ./public
 COPY .next/static ./.next/statis
 COPY .next/standalone ./.next/standalone
 
-FROM node:16-alpine AS runner
+FROM node:18-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

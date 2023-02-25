@@ -10,3 +10,4 @@ docker-compose.yml
 notes.md
 npm-debug.log
 README.md
+.env.local

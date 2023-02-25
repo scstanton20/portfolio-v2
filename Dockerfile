@@ -12,14 +12,14 @@ WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
 COPY --from=base /app/package.json ./package.json
 
-RUN npm run build --production
-
 COPY next.config.js ./next.config.js
 COPY sanity.js ./sanity.js
 COPY src ./src
 COPY public ./public
 COPY .next/static ./.next/statis
 COPY .next/standalone ./.next/standalone
+
+RUN npm run build --production
 
 FROM node:18-alpine AS runner
 WORKDIR /app

@@ -12,12 +12,7 @@ WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
 COPY --from=base /app/package.json ./package.json
 
-COPY next.config.js ./next.config.js
-COPY sanity.js ./sanity.js
-COPY src ./src
-COPY public ./public
-COPY typings.d.ts ./typings.d.ts
-COPY tsconfig.json ./tsconfig.json
+COPY . .
 
 ENV NEXT_PUBLIC_MATOMO_SITE_ID="1"
 ENV NEXT_PUBLIC_MATOMO_URL="https://matomo.scstanton.dev"
@@ -28,7 +23,7 @@ RUN --mount=type=secret,id=SENDGRID_API_KEY \
     export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
 
 
-RUN npm run build --production
+RUN npm ci && npm run build
 
 FROM node:18-alpine AS runner
 WORKDIR /app

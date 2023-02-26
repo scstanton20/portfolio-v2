@@ -23,10 +23,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
-      - name: Build Docker Image
+      - name: Build and & Publish Docker Image
         uses: docker/build-push-action@v4
         with:
-          push: false
+          push: true
           tags: scstanton20/portfolio-v2:v1.0.0
           secrets: |
             SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}

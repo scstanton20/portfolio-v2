@@ -19,7 +19,18 @@ COPY public ./public
 COPY typings.d.ts ./typings.d.ts
 COPY tsconfig.json ./tsconfig.json
 
-RUN npm run build --production
+ENV NEXT_PUBLIC_MATOMO_SITE_ID="1"
+ENV NEXT_PUBLIC_MATOMO_URL="https://matomo.scstanton.dev"
+ENV NEXT_PUBLIC_SANITY_DATASET="production"
+ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
+
+RUN --mount=type=secret,id=SENDGRID_API_KEY \
+    mkdir -p /usr/share/secrets && \
+    /bin/sh -c "\
+        export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY); \
+        /usr/bin/entry.sh || echo 'Failed to get environment secrets'; exit 0 \
+        "
+RUN npm run ci && npm run build --production
 
 COPY .next/static ./.next/static
 COPY .next/standalone ./.next/standalone

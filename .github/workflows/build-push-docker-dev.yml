@@ -23,7 +23,7 @@ jobs:
       - name: Build with Docker Compose
         uses: isbang/compose-action@v1.4.1
         with:
-          compose-file: ./docker-compose.yml
+          compose-file: docker-compose.yml
           env:
             NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_SITE_ID }}
             NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}

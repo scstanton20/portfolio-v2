@@ -32,9 +32,6 @@ RUN --mount=type=secret,id=SENDGRID_API_KEY \
         "
 RUN npm run ci && npm run build --production
 
-COPY .next/static ./.next/static
-COPY .next/standalone ./.next/standalone
-
 FROM node:18-alpine AS runner
 WORKDIR /app
 

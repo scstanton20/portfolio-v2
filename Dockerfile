@@ -25,11 +25,9 @@ ENV NEXT_PUBLIC_SANITY_DATASET="production"
 ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
 
 RUN --mount=type=secret,id=SENDGRID_API_KEY \
-    mkdir -p /usr/share/secrets && \
-    /bin/sh -c "\
-        export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY); \
-        /usr/bin/entry.sh || echo 'Failed to get environment secrets'; exit 0 \
-        "
+    export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
+
+
 RUN npm run ci && npm run build --production
 
 FROM node:18-alpine AS runner

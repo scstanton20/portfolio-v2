@@ -28,7 +28,7 @@ RUN --mount=type=secret,id=SENDGRID_API_KEY \
     export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
 
 
-RUN npm run ci && npm run build --production
+RUN npm run build --production
 
 FROM node:18-alpine AS runner
 WORKDIR /app

@@ -1,0 +1,13 @@
+.azure/
+.git/
+.swc/
+.vscode/
+nginx/
+node_modules/
+.dockerignore
+.env.template
+docker-compose.yml
+notes.md
+npm-debug.log
+README.md
+.env.local

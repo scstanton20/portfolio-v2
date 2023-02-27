@@ -1,14 +1,14 @@
-name: build-push-docker-dev
+name: build-push-docker
 
 on:
   push:
     branches:
-      - 'dev'
+      - 'main'
 
 jobs:
   next-build:
     if: "contains(github.event.head_commit.message, 'build/push')"
-    environment: development
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: Check out
@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: scstanton20/portfolio-v2:dev
+          tags: scstanton/portfolio-v2:dev
           secrets: |
             SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
           platforms: linux/amd64

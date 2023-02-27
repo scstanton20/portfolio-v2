@@ -26,7 +26,7 @@ const Connect = () => {
                 <MessageForm />
                 <div className="row-start-1 md:row-auto">
                     <div className="h-28px w-28px mb-4 md:mx-10">
-                        <img className="rounded-full " src="photo.png" />
+                        <img className="rounded-full " src="photo.png" alt="My senior photo" />
                     </div>
                     <ContactLink
                         name="sam@scstanton.dev"

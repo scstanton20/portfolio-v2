@@ -23,7 +23,7 @@ export default function Home({ projects, certifications }: Props) {
 
             <h2 className="font-medium text-3xl mb-4">What I Do 💭</h2>
             <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-12">
-                I am a Junior-level business information technology student with 6+ years of front-line team management experience, 
+                I am a Junior-level Entrepreneurship, Innovation, and Technology student with 6+ years of front-line team management experience, 
                 A/V systems integration skills, and extensive technical production background. I am highly adaptable and dedicated to ensuring 
                 team members and customers alike have the tools they need to be successful. I am excited to see what the future of entertainment 
                 technology brings to impactful storytelling and the effect it will have on the theme park industry.

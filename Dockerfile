@@ -14,8 +14,8 @@ COPY --from=base /app/package.json ./package.json
 
 COPY . .
 
-ENV NEXT_PUBLIC_MATOMO_SITE_ID="1"
-ENV NEXT_PUBLIC_MATOMO_URL="https://matomo.scstanton.dev"
+##ENV NEXT_PUBLIC_MATOMO_SITE_ID="1"
+##ENV NEXT_PUBLIC_MATOMO_URL="https://matomo.scstanton.dev"
 ENV NEXT_PUBLIC_SANITY_DATASET="production"
 ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
 

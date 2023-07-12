@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             </Head>
 
             <div className="text-black dark:text-white flex flex-row justify-center w-full h-full bg-gradient-to-bl from-white to-[#fff] dark:from-black dark:to-[#0d131f] min-h-screen">
-                <Nav />
+            <Nav />
                 <div className="w-[80%] md:w-[45rem]">
                     <AnimatePresence mode='wait'>
                         <Component {...pageProps} key={router.pathname} />

@@ -36,5 +36,6 @@ export interface Experience {
     jobType: string,
     startDate: string,
     endDate: string,
-    responsibilities: string
+    responsibilities: string,
+    role: string,
 }

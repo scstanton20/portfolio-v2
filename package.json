@@ -1,6 +1,6 @@
 {
   "name": "@scstanton20/portfolio-v2",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,6 +19,7 @@
     "@tippyjs/react": "^4.2.6",
     "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^5.1.26",
+    "bimap": "^0.0.15",
     "dotenv": "^16.0.3",
     "framer-motion": "^10.12.18",
     "groq": "^3.2.5",

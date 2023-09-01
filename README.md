@@ -11,8 +11,8 @@
 - Uses TailwindCSS, for easy light/dark theme configuration
 
 **Redirects:**
-- https://scstanton.dev/linkedin
-- https://scstanton.dev/status
+- https://scstanton.net/linkedin
+- https://scstanton.net/status
 
 
 <sub>**Design heavily inspired by [Conrad](https://github.com/cnrad)'s [personal site](https://cnrad.dev)**</sub>

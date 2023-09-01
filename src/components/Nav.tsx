@@ -82,27 +82,27 @@ const Nav = () => {
                 <div className="flex flex-row items-center justify-center gap-2 xs:gap-4 hover:bg-sky-700">
                     <LinkButton
                         title="LinkedIn"
-                        href={"http://link.scstanton.dev/linkedin"}
+                        href={"http://link.scstanton.net/linkedin"}
                         icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
                         title="Resume"
-                        href={"http://link.scstanton.dev/resume"}
+                        href={"http://link.scstanton.net/resume"}
                         icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
                         title="Instagram"
-                        href={"http://link.scstanton.dev/instagram"}
+                        href={"http://link.scstanton.net/instagram"}
                         icon={<SiInstagram className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
                         title="Email"
-                        href={"mailto:sam@scstanton.dev"}
+                        href={"mailto:sam@scstanton.net"}
                         icon={<FiMail className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
                         title="Website containerized with Docker"
-                        href={"http://link.scstanton.dev/status"}
+                        href={"http://link.scstanton.net/status"}
                         icon={<FaDocker className="w-6 h-6 cursor-pointer" />}
                     />
                 </div>
@@ -159,27 +159,27 @@ const Nav = () => {
                             <div className="flex flex-row items-center justify-center gap-6 py-4">
                             <LinkButton
                                 title="LinkedIn"
-                                href={"http://link.scstanton.dev/linkedin"}
+                                href={"http://link.scstanton.net/linkedin"}
                                 icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
                                 />
                             <LinkButton
                                 title="Resume"
-                                href={"http://link.scstanton.dev/resume"}
+                                href={"http://link.scstanton.net/resume"}
                                 icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
                                  />
                             <LinkButton
                                 title="Instagram"
-                                href={"http://link.scstanton.dev/instagram"}
+                                href={"http://link.scstanton.net/instagram"}
                                 icon={<SiInstagram className="w-6 h-6 cursor-pointer" />}
                             />
                             <LinkButton
                                 title="Email"
-                                href={"mailto:sam@scstanton.dev"}
+                                href={"mailto:sam@scstanton.net"}
                                 icon={<FiMail className="w-6 h-6 cursor-pointer" />}
                             />
                             <LinkButton
                                 title="Website containerized with Docker"
-                                href={"http://link.scstanton.dev/status"}
+                                href={"http://link.scstanton.net/status"}
                                 icon={<FaDocker className="w-6 h-6 cursor-pointer" />}
                             />
                             </div>

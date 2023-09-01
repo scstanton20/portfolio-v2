@@ -16,12 +16,12 @@ const nextConfig = {
       },
       {
         source: '/status',
-        destination: 'https://status.scstanton.dev',
+        destination: 'https://status.scstanton.net',
         permanent: true,
       },
       {
         source:'/logout',
-        destination: 'https://auth.scstanton.dev/if/flow/default-invalidation-flow/?next=%2F',
+        destination: 'https://auth.scstanton.net/if/flow/default-invalidation-flow/?next=%2F',
         permanent: true
       },
       ]

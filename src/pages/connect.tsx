@@ -29,7 +29,7 @@ const Connect = () => {
                         <img className="rounded-full " src="photo.png" alt="My senior photo" />
                     </div>
                     <ContactLink
-                        name="sam@scstanton.dev"
+                        name="sam@scstanton.net"
                         icon={<FiMail className="w-6 h-6 text-gray-400" />}
                         link="mailto:sam@scstanton.net"
                         borderColor="hover:border-gray-400/50"

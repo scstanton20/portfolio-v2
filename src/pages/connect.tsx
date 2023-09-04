@@ -31,7 +31,7 @@ const Connect = () => {
                     <ContactLink
                         name="sam@scstanton.dev"
                         icon={<FiMail className="w-6 h-6 text-gray-400" />}
-                        link="mailto:sam@scstanton.dev"
+                        link="mailto:sam@scstanton.net"
                         borderColor="hover:border-gray-400/50"
                     />
                 </div>

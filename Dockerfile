@@ -1,11 +1,11 @@
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 RUN NODE_ENV=production npm install --frozen-lockfile
 
-FROM node:18-alpine As builder
+FROM node:20-alpine As builder
 ENV NODE_ENV=production
 
 WORKDIR /app
@@ -25,7 +25,7 @@ RUN --mount=type=secret,id=SENDGRID_API_KEY \
 
 RUN npm ci && npm run build
 
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

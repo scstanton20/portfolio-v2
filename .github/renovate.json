@@ -9,5 +9,6 @@
       "(^|/|\\.)([Dd]ocker|[Cc]ontainer)file$",
       "(^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$"
     ]
-  }
+  },
+  "baseBranches": ["dev"]
 }

@@ -15,6 +15,8 @@
   "fileMatch": [
     "(^|/)package\\.json$"
   ],
+  "schedule": ["every other day at 12pm"],
+  "rangeStrategy": "bump",
   "versioning": "npm",
   "digest": {
     "prBodyDefinitions": {

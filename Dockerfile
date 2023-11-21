@@ -1,11 +1,11 @@
-FROM node:20-alpine AS base
+FROM node:21-alpine AS base
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 RUN npm install
 
-FROM node:20-alpine As builder
+FROM node:21-alpine As builder
 ENV NODE_ENV=production
 
 WORKDIR /app
@@ -22,7 +22,7 @@ RUN --mount=type=secret,id=SENDGRID_API_KEY \
 
 RUN npm ci && npx next build
 
-FROM node:20-alpine AS runner
+FROM node:21-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

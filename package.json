@@ -17,7 +17,7 @@
     "@sendgrid/mail": "^7.7.0",
     "@socialgouv/matomo-next": "^1.8.0",
     "@tippyjs/react": "^4.2.6",
-    "@types/nprogress": "^0.2.1",
+    "@types/nprogress": "^0.2.3",
     "@types/styled-components": "^5.1.31",
     "bimap": "^0.0.15",
     "dotenv": "^16.3.1",

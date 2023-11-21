@@ -24,7 +24,7 @@
     "framer-motion": "^10.16.4",
     "groq": "^3.18.0",
     "next": "^13.5.6",
-    "next-sanity": "^5.5.8",
+    "next-sanity": "^5.5.10",
     "nprogress": "^0.2.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

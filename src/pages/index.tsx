@@ -4,6 +4,7 @@ import { Project, Certification } from '../../typings';
 import Link from "next/link";
 import { BiMap, BiCalendarCheck } from 'react-icons/bi';
 import Tippy from '@tippyjs/react';
+import { PortableText } from "@portabletext/react";
 interface Props {
     projects: [Project];
     certifications: [Certification];
@@ -61,7 +62,9 @@ export default function Home({ projects, certifications }: Props) {
                                 {project.title}
                                 <img className="w-12 h-12 rounded-full" src={urlFor(project.image).url()!} alt=""/>
                             </p>
-                            <p className=" text-gray-700 dark:text-gray-300 text-sm">{project.description}</p>
+                            <p className="text-gray-700 dark:text-gray-300 text-sm">
+                                <PortableText value={project.description}/>
+                            </p>
                             <div className= "mt-auto">
                                 <p className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
                                     <BiMap className="h-4 w-4" /> {project.place}
@@ -85,7 +88,7 @@ export const getServerSideProps = async () => {
         dateCompleted,
         projectLink,
         place,
-        description,
+        description[]{...},
         image
       }`;
       const certquery = `*[_type == "certification"]{

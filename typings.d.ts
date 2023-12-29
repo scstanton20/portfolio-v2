@@ -1,7 +1,7 @@
 export interface Project {
     _id: string,
     dateCompleted: string,
-    description: string,
+    description: any[],
     place: string,
     projectLink: string,
     image: {
@@ -33,9 +33,11 @@ export interface Experience {
     };
     companyLocation: string,
     companyName: string,
+    positions: Position[],
     jobType: string,
+    title: string,
+    location: string | null,
     startDate: string,
-    endDate: string,
-    responsibilities: string,
-    role: string,
+    endDate: string | null,
+    description: string | null,
 }

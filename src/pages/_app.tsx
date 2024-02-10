@@ -23,7 +23,7 @@ let siteId:string = MATOMO_SITE_ID!;
 function MyApp({ Component, pageProps, router }: AppProps) {
     useEffect(() => {
         if (typeof window === "undefined") {
-            return;
+           return;
         }
         void new Audio("/pop.mp3").play().catch(() => null);
         init({ url, siteId});

@@ -20,6 +20,7 @@ ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
 RUN --mount=type=secret,id=SENDGRID_API_KEY \
     export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
 
+#RUN npx next lint
 RUN npm ci && npx next build
 
 FROM node:21-alpine AS runner

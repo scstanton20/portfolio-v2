@@ -24,7 +24,7 @@ export default function Home({ projects, certifications }: Props) {
 
             <h2 className="font-medium text-3xl mb-4">What I Do 💭</h2>
             <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-12">
-                I am a Junior-level Entrepreneurship, Innovation, and Technology student with 6+ years of front-line team management experience, 
+                I am a Senior-level Entrepreneurship, Innovation, and Technology student with 7+ years of front-line team management experience, 
                 A/V systems integration skills, and extensive technical production background. I am highly adaptable and dedicated to ensuring 
                 team members and customers alike have the tools they need to be successful. I am excited to see what the future of entertainment 
                 technology brings to impactful storytelling and the effect it will have on the theme park industry.
@@ -58,20 +58,20 @@ export default function Home({ projects, certifications }: Props) {
                 {projects.map(project => (
                     <Link key={project._id} href={project.projectLink} target="_blank">
                         <div className="flex mt-auto flex-col gap-1 p-2 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
-                            <p className="flex font-bold justify-between text-2xl">
+                            <div className="flex font-bold justify-between text-2xl">
                                 {project.title}
                                 <img className="w-12 h-12 rounded-full" src={urlFor(project.image).url()!} alt=""/>
-                            </p>
-                            <p className="text-gray-700 dark:text-gray-300 text-sm">
+                            </div>
+                            <div className="text-gray-700 dark:text-gray-300 text-sm">
                                 <PortableText value={project.description}/>
-                            </p>
+                            </div>
                             <div className= "mt-auto">
-                                <p className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
+                                <div className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
                                     <BiMap className="h-4 w-4" /> {project.place}
-                                </p>   
-                                <p className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
+                                </div>   
+                                <div className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">
                                     <BiCalendarCheck className="h-4 w-4" /> Status: {project.dateCompleted}
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </Link>
@@ -79,7 +79,7 @@ export default function Home({ projects, certifications }: Props) {
             </div>
         </motion.div>
     );
-};
+}
 
 export const getServerSideProps = async () => {
     const projectsquery = `*[_type == "project"]{

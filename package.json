@@ -15,7 +15,7 @@
     "@portabletext/react": "^3.0.11",
     "@sanity/client": "^6.8.6",
     "@sendgrid/mail": "^8.1.0",
-    "@socialgouv/matomo-next": "^1.8.0",
+    "@socialgouv/matomo-next": "^1.8.1",
     "@tippyjs/react": "^4.2.6",
     "@types/nprogress": "^0.2.3",
     "@types/styled-components": "^5.1.31",

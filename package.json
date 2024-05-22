@@ -48,7 +48,7 @@
     "eslint-plugin-react": "7.33.2",
     "postcss": "8.4.31",
     "tailwindcss": "3.3.5",
-    "typescript": "5.3.2"
+    "typescript": "5.4.5"
   },
   "description": "------------ [![ci](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml/badge.svg?branch=main)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml) [![docker-build-push-dev](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml/badge.svg?branch=dev)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml)",
   "main": "next.config.js",

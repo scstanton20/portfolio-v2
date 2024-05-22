@@ -11,7 +11,7 @@ const NotFound = () => {
             className="mt-36 mb-80 w-full"
         >
             <h1 className="text-black dark:text-white font-bold text-3xl mb-3 mt-8">Hmm... 🤔</h1>
-            <p className="text-black dark:text-gray-200 mb-6">It seems that we can't find anything by that name</p>
+            <p className="text-black dark:text-gray-200 mb-6">It seems that we can&apos;t find anything by that name</p>
         </motion.div>
     );
 };

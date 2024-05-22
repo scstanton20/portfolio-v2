@@ -9,16 +9,16 @@ import { Router } from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { useEffect } from "react";
-import { init } from "@socialgouv/matomo-next";
+// import { init } from "@socialgouv/matomo-next";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
-const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
-let url:string = MATOMO_URL!;
-let siteId:string = MATOMO_SITE_ID!;
+// const MATOMO_URL = process.env.NEXT_PUBLIC_MATOMO_URL;
+// const MATOMO_SITE_ID = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
+// let url:string = MATOMO_URL!;
+// let siteId:string = MATOMO_SITE_ID!;
 
 function MyApp({ Component, pageProps, router }: AppProps) {
     useEffect(() => {
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
            return;
         }
         void new Audio("/pop.mp3").play().catch(() => null);
-        init({ url, siteId});
+        // init({ url, siteId});
     }, [router.pathname]);
 
     return (

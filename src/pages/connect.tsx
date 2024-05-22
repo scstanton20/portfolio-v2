@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import TimeStatus from "../components/talk/TimeStatus";
 import Image from 'next/image'
 
-
 function Connect() {
     return (
         <motion.div
@@ -19,15 +18,12 @@ function Connect() {
             <p className="text-gray-800 dark:text-gray-200 mb-6">
                 Have an inquiry or want to connect? Feel free to leave a message below, or get in touch via Email.
             </p>
-
             <TimeStatus />
-                
-
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 mb-20">
                 <MessageForm />
                 <div className="row-start-1 md:row-auto">
                     <div className="h-28px w-28px mb-4 md:mx-10">
-                        <Image className="rounded" src="/photo.png" alt="My senior photo" width="200" height="200"/>
+                        <Image className="rounded-full" src="/photo.png" alt="My senior photo" width="200" height="200"/>
                     </div>
                     <ContactLink
                         name="sam@scstanton.net"

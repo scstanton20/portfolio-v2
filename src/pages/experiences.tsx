@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { sanityClient, urlFor } from '../../sanity';
 import { Experience } from '../../typings';
+import Image from 'next/image'
 
 interface Props {
     experiences: Experience[];
@@ -43,30 +44,34 @@ export default function Experiences({ experiences }: Props) {
         >
             <h1 className="text-black dark:text-white font-bold text-3xl mb-4 mt-8">Experiences 👨‍💼</h1>
             <div className="space-y-6">
-      {experiences.map((experience, index) => (
-        <div key={index} className=" shadow rounded-md p-4">
-          <div className="flex space-x-4">
-            <img
-              src={urlFor(experience.image).url()!}
-              alt={`${experience.companyName} Logo`}
-              className="h-16 w-16 rounded-full"
-            />
-            <div>
-              <h3 className="text-xl font-bold">{experience.companyName}</h3>
-              {experience.positions.map((position, posIndex) => (
-                <div key={posIndex} className="mt-2">
-                  <h4 className="text-lg font-semibold">{position.title}</h4>
-                  <p className="text-gray-500">{experience.jobType} - {position.location}</p>
-                  <p className="text-gray-600">
-                    {new Date(position.startDate).toLocaleDateString()} - {position.endDate ? new Date(position.endDate).toLocaleDateString() : 'Present'}
-                  </p>
-                  <ReadMoreDescription description={position.description} />
-                </div>
-              ))}
-            </div>
-          </div>
+            {experiences.map((experience, index) => (
+  <div key={index} className="shadow rounded-md p-4">
+    <div className="flex">
+      <div className="flex-shrink-0">
+          <Image
+            src={urlFor(experience.image).url()!}
+            alt={`${experience.companyName} Logo`}
+            className="rounded-full mr-4"
+            height="48"
+            width="48"
+          />
         </div>
-      ))}
+      <div>
+        <h3 className="text-xl font-bold">{experience.companyName}</h3>
+        {experience.positions.map((position, posIndex) => (
+          <div key={posIndex} className="mt-2">
+            <h4 className="text-lg font-semibold">{position.title}</h4>
+            <p className="text-gray-500">{experience.jobType} - {position.location}</p>
+            <p className="text-gray-600">
+              {new Date(position.startDate).toLocaleDateString()} - {position.endDate ? new Date(position.endDate).toLocaleDateString() : 'Present'}
+            </p>
+            <ReadMoreDescription description={position.description} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+))}
     </div>
         </motion.div>
     );

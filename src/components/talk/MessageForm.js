@@ -145,7 +145,7 @@ export default function ContactUs() {
           <div className="text-left">
             {showSuccessMessage && (
               <p className="text-green-500 font-semibold text-sm my-2">
-                Thank you! Your Message has been delivered.
+                Thank you! Your message has been delivered.
               </p>
             )}
             {showFailureMessage && (

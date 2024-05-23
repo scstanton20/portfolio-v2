@@ -35,6 +35,6 @@ function Connect() {
             </div>
         </motion.div>
     );
-};
+}
 
 export default Connect;

@@ -12,7 +12,7 @@
     "fs": false
   },
   "dependencies": {
-    "@portabletext/react": "3.0.11",
+    "@portabletext/react": "3.0.18",
     "@sanity/client": "6.18.2",
     "@sendgrid/mail": "8.1.3",
     "@socialgouv/matomo-next": "1.8.0",

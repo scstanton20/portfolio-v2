@@ -19,6 +19,7 @@
     "@tippyjs/react": "4.2.6",
     "@types/nprogress": "0.2.3",
     "bimap": "0.0.15",
+    "dotenv": "^16.4.5",
     "next-sanity": "^9.2.0",
     "nprogress": "0.2.0",
     "prop-types": "15.8.1",

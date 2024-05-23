@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-FROM node:21-alpine As builder
+FROM node:21.7.3-alpine As builder
 ENV NODE_ENV=production
 
 WORKDIR /app

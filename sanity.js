@@ -1,11 +1,14 @@
-require('dotenv').config()
+if (typeof window === 'undefined') {
+    require('dotenv').config();
+  }
+  
 import { createClient } from 'next-sanity';
 import createImageUrlBuilder from '@sanity/image-url';
 
 export const config = {
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    apiVersion: "2021-10-21",
+    apiVersion: "2024-05-22",
     useCdn: process.env.NODE_ENV === "production"
 };
 

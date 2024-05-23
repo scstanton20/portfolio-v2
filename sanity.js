@@ -1,6 +1,4 @@
-if (typeof window === 'undefined') {
-    require('dotenv').config();
-  }
+require('dotenv').config()
   
 import { createClient } from 'next-sanity';
 import createImageUrlBuilder from '@sanity/image-url';

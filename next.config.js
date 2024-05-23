@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
+  // output: 'standalone',
+  eslint: { 
+    ignoreDuringBuilds: true, 
+  }, 
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/zu8w3jsp/production/**',
+      },
+    ],
+  },
   async redirects() {
     return [
       {

@@ -6,7 +6,7 @@ const ThemeToggle = () => {
     const [theme, setTheme] = useState<string>("dark");
 
     useEffect(() => {
-        let storedTheme = localStorage.getItem("theme") as string;
+        const storedTheme = localStorage.getItem("theme") as string;
 
         if (!storedTheme) {
             localStorage.setItem("theme", theme);
@@ -18,7 +18,7 @@ const ThemeToggle = () => {
     }, []);
 
     const changeTheme = (theme: string) => {
-        let newTheme = theme === "light" ? "dark" : "light";
+        const newTheme = theme === "light" ? "dark" : "light";
 
         localStorage.setItem("theme", newTheme);
         setTheme(newTheme);

@@ -79,7 +79,7 @@ const Nav = () => {
                     <LandingButton name="Home" link="/" selected={router.pathname === "/"} />
                     <LandingButton name="Connect" link="/connect" selected={router.pathname === "/connect"} />
                 </div>
-                <div className="flex flex-row items-center justify-center gap-2 xs:gap-4 hover:bg-sky-700">
+                <div className="flex flex-row items-center justify-center gap-2 xs:gap-4">
                     <LinkButton
                         title="LinkedIn"
                         href={"http://link.scstanton.net/linkedin"}

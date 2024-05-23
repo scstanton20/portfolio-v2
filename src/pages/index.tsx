@@ -5,6 +5,7 @@ import Link from "next/link";
 import { BiMap, BiCalendarCheck } from 'react-icons/bi';
 import Tippy from '@tippyjs/react';
 import { PortableText } from "@portabletext/react";
+import Image from 'next/image';
 interface Props {
     projects: [Project];
     certifications: [Certification];
@@ -17,7 +18,7 @@ export default function Home({ projects, certifications }: Props) {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ ease: "easeOut", duration: 0.15 }}
             className="mt-24 w-full mb-32">
-            <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">Hey, I'm Sam 👋</h1>
+            <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">Hey, I&apos;m Sam 👋</h1>
             <p className="text-gray-800 dark:text-gray-300 leading-6 tracking-wide mb-12">
                 My name is Sam Stanton and I am an Entrepreneurship, Innovation, and Technology major in the Pamplin College of Business at Virginia Tech, in Blacksburg, VA.
             </p>
@@ -41,7 +42,7 @@ export default function Home({ projects, certifications }: Props) {
                             <div id="parent">
                                 <Tippy className="text-sm flex font-bold justify-between" content={<>{certification.title} <br /> Issued by {certification.issuer} <br /> Received on {certification.receivedDate} </>} interactive={true} placement={'bottom'} trigger={"mouseenter"}>
                                     <button>
-                                        <img className="w-11 h-11 rounded-full" src={urlFor(certification.image).url()!} alt="" />
+                                        <Image className="rounded-full" src={urlFor(certification.image).url()!} alt="Certification Images" height="50" width="50" />
                                     </button>
                                 </Tippy>
                             </div>
@@ -60,7 +61,15 @@ export default function Home({ projects, certifications }: Props) {
                         <div className="flex mt-auto flex-col gap-1 p-2 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
                             <div className="flex font-bold justify-between text-2xl">
                                 {project.title}
-                                <img className="w-12 h-12 rounded-full" src={urlFor(project.image).url()!} alt=""/>
+                                <div className="flex-shrink-0">
+                                    <Image
+                                    className="rounded-full"
+                                    src={urlFor(project.image).url()!}
+                                    alt="Project Images"
+                                    width="40"
+                                    height="40"
+                                    />
+                                </div>
                             </div>
                             <div className="text-gray-700 dark:text-gray-300 text-sm">
                                 <PortableText value={project.description}/>

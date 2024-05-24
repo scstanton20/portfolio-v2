@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM node:22.2.0-alpine AS base
 
 WORKDIR /app
 
@@ -17,13 +17,10 @@ COPY . .
 ENV NEXT_PUBLIC_SANITY_DATASET="production"
 ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
 
-RUN --mount=type=secret,id=SENDGRID_API_KEY \
-    export SENDGRID_API_KEY=$(cat /run/secrets/SENDGRID_API_KEY)
-
 #RUN npx next lint
 RUN npm ci && npx next build
 
-FROM node:22-alpine AS runner
+FROM node:22.2.0-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

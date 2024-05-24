@@ -26,8 +26,6 @@ jobs:
         with:
           push: true
           tags: scstanton/portfolio-v2:latest
-          secrets: |
-            SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
           platforms: linux/amd64
         
       

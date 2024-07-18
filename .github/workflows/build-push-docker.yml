@@ -1,9 +1,6 @@
 name: build-push-docker
 
-on:
-  push:
-    branches:
-      - 'main'
+on: workflow_dispatch
 
 jobs:
   next-build:

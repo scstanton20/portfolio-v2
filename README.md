@@ -1,7 +1,6 @@
 # Sam's Personal Website 
 ------------
 [![ci](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml/badge.svg?branch=main)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml)
-[![docker-build-push-dev](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml/badge.svg?branch=dev)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml)
 
 **Features:**
 - Written with the NextJS 13 framework and containerized with Docker to be self-hosted on my Unraid server

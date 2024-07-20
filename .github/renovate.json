@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "mergeConfidence:all-badges"
+    "mergeConfidence:all-badges",
+    ":disableDependencyDashboard"
   ],
   "enabledManagers": ["dockerfile", "npm", "github-actions"],
   "dockerfile": {

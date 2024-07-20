@@ -4,7 +4,6 @@ on: workflow_dispatch
 
 jobs:
   next-build:
-    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: Check out

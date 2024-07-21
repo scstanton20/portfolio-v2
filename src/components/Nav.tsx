@@ -147,7 +147,12 @@ const Nav = () => {
                                     selected={router.pathname === "/"}
                                     onClick={() => setMenuOpen(false)}
                                 />
-                                
+                                <MobileLandingButton
+                                    name="Experiences"
+                                    link="/experiences"
+                                    selected={router.pathname === "/experiences"}
+                                    onClick={() => setMenuOpen(false)}
+                                />
                                 <MobileLandingButton
                                     name="Connect"
                                     link="/connect"

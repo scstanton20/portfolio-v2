@@ -3,7 +3,7 @@ name: build-push-docker
 on: workflow_dispatch
 
 jobs:
-  next-build:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
@@ -17,6 +17,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
       - name: Build & Publish Docker Image
         uses: docker/build-push-action@v6
         with:

@@ -91,11 +91,6 @@ const Nav = () => {
                         icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
-                        title="Instagram"
-                        href={"http://link.scstanton.net/instagram"}
-                        icon={<SiInstagram className="w-6 h-6 cursor-pointer" />}
-                    />
-                    <LinkButton
                         title="Email"
                         href={"mailto:sam@scstanton.net"}
                         icon={<FiMail className="w-6 h-6 cursor-pointer" />}
@@ -167,11 +162,6 @@ const Nav = () => {
                                 href={"http://link.scstanton.net/resume"}
                                 icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
                                  />
-                            <LinkButton
-                                title="Instagram"
-                                href={"http://link.scstanton.net/instagram"}
-                                icon={<SiInstagram className="w-6 h-6 cursor-pointer" />}
-                            />
                             <LinkButton
                                 title="Email"
                                 href={"mailto:sam@scstanton.net"}

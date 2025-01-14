@@ -8,7 +8,6 @@ import { Router } from "next/router";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { useEffect } from "react";
 // import { init } from "@socialgouv/matomo-next";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -21,14 +20,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 // let siteId:string = MATOMO_SITE_ID!;
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-    useEffect(() => {
-        if (typeof window === "undefined") {
-           return;
-        }
-        void new Audio("/pop.mp3").play().catch(() => null);
-        // init({ url, siteId});
-    }, [router.pathname]);
-
+   
     return (
         <>
             <Head>

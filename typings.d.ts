@@ -22,7 +22,7 @@ export interface Certification {
     issuer: string,
     receivedDate: string,
     title: string;
-};
+}
 
 export interface Experience {
     _id: string
@@ -40,4 +40,14 @@ export interface Experience {
     startDate: string,
     endDate: string | null,
     description: string | null,
+}
+
+export interface ConnectPhoto {
+    _id: string,
+    image: {
+        asset: {
+            url: string;
+        };
+    };
+    alt: string;
 }

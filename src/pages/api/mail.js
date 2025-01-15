@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const mail = require('@sendgrid/mail');
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 

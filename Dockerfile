@@ -1,11 +1,11 @@
-FROM node:22.2.0-alpine AS base
+FROM node:22.21.0-alpine AS base
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 RUN npm ci
 
-FROM node:22.2.0-alpine AS builder
+FROM node:22.21.0-alpine AS builder
 ENV NODE_ENV=production
 
 WORKDIR /app
@@ -20,7 +20,7 @@ ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
 #RUN npx next lint
 RUN npx next build
 
-FROM node:22.2.0-alpine AS runner
+FROM node:22.21.0-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

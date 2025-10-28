@@ -11,7 +11,9 @@ async function getConnectPhoto() {
         alt,
         image
     }`;
-  return await sanityClient.fetch<ConnectPhoto[]>(connectphotoquery);
+  return await sanityClient.fetch<ConnectPhoto[]>(connectphotoquery, {}, {
+    next: { tags: ['connectphoto'] }
+  });
 }
 
 export default async function Connect() {

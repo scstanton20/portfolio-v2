@@ -17,7 +17,9 @@ async function getProjects() {
         description[]{...},
         image
     }`;
-  return await sanityClient.fetch<Project[]>(projectsquery);
+  return await sanityClient.fetch<Project[]>(projectsquery, {}, {
+    next: { tags: ['projects'] }
+  });
 }
 
 async function getCertifications() {
@@ -28,7 +30,9 @@ async function getCertifications() {
         issuer,
         receivedDate
     }`;
-  return await sanityClient.fetch<Certification[]>(certquery);
+  return await sanityClient.fetch<Certification[]>(certquery, {}, {
+    next: { tags: ['certifications'] }
+  });
 }
 
 export default async function Home() {

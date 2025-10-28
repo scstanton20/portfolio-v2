@@ -1,15 +1,17 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
-import { SiInstagram, SiLinkedin } from "react-icons/si";
+import { SiLinkedin } from "react-icons/si";
 import { IoDocumentAttachSharp } from "react-icons/io5";
 import { FiMail } from "react-icons/fi";
 import { FaDocker } from "react-icons/fa";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import { classNames } from "../util/classNames";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import Tippy from '@tippyjs/react';
+import Tooltip from './Tooltip';
 
 const LandingButton = ({ name, link, selected }: { name: string; link: string; selected: boolean }) => {
     return (
@@ -53,17 +55,15 @@ const MobileLandingButton = ({
 };
 const LinkButton = ({ title, icon, href }: any) => {
     return (
-        <Tippy content={title} interactive={true} placement={"bottom"} trigger={"mouseenter"}>
-            <button>
-                <a target="_blank" rel="noreferrer" href={href}>
-                    {icon}
-                </a>
-            </button>
-        </Tippy>
+        <Tooltip content={title}>
+            <a target="_blank" rel="noreferrer" href={href}>
+                {icon}
+            </a>
+        </Tooltip>
     );
 };
 const Nav = () => {
-    const router = useRouter();
+    const pathname = usePathname();
     const [mobileMenuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
         setMenuOpen(old => !old);
@@ -74,8 +74,8 @@ const Nav = () => {
             <motion.div className="hidden z-999 fixed w-[90%] md:w-200 xs:flex flex-row justify-between items-center px-4 py-2 mt-4 md:mt-6 rounded-md bg-white/60 dark:bg-[#12181d]/60 border border-slate-800/50 backdrop-blur-lg">
                 <div className="flex flex-row items-center justify-between gap-2">
                     <ThemeToggle />
-                    <LandingButton name="Home" link="/" selected={router.pathname === "/"} />
-                    <LandingButton name="Connect" link="/connect" selected={router.pathname === "/connect"} />
+                    <LandingButton name="Home" link="/" selected={pathname === "/"} />
+                    <LandingButton name="Connect" link="/connect" selected={pathname === "/connect"} />
                 </div>
                 <div className="flex flex-row items-center justify-center gap-2 xs:gap-4">
                     <LinkButton
@@ -137,14 +137,14 @@ const Nav = () => {
                                 <MobileLandingButton
                                     name="Home"
                                     link="/"
-                                    selected={router.pathname === "/"}
+                                    selected={pathname === "/"}
                                     onClick={() => setMenuOpen(false)}
                                 />
-                                
+
                                 <MobileLandingButton
                                     name="Connect"
                                     link="/connect"
-                                    selected={router.pathname === "/connect"}
+                                    selected={pathname === "/connect"}
                                     onClick={() => setMenuOpen(false)}
                                 />
                             </div>

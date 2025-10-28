@@ -1,6 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
-import Tippy from '@tippyjs/react';
+import Tooltip from './Tooltip';
 
 const ThemeToggle = () => {
     const [theme, setTheme] = useState<string | null>(null);
@@ -51,7 +53,7 @@ const ThemeToggle = () => {
     }
 
     return (
-        <Tippy content={"Toggle Light/Dark"} interactive={true} placement={"bottom"} trigger={"mouseenter"}>
+        <Tooltip content="Toggle Light/Dark">
             <button
                 aria-label="Theme-Toggle"
                 className="p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer"
@@ -60,7 +62,7 @@ const ThemeToggle = () => {
                 {theme === "light" && <FiSun className="text-black w-6 h-6 xs:w-5 xs:h-5" />}
                 {theme === "dark" && <FiMoon className="text-white w-6 h-6 xs:w-5 xs:h-5" />}
             </button>
-        </Tippy>
+        </Tooltip>
     );
 };
 

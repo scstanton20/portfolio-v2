@@ -38,28 +38,26 @@ export async function POST(request: NextRequest) {
 
     const revalidatedTags: string[] = [];
 
-    // Revalidate based on content type
-    // Note: In Next.js 16, revalidateTag requires a second argument (cache profile)
-    // Using empty string for default behavior
+    // Revalidate cache based on content type
     if (_type === 'project') {
-      revalidateTag('projects', '');
+      revalidateTag('projects', 'max');
       revalidatedTags.push('projects');
     } else if (_type === 'certification') {
-      revalidateTag('certifications', '');
+      revalidateTag('certifications', 'max');
       revalidatedTags.push('certifications');
     } else if (_type === 'connectphoto') {
-      revalidateTag('connectphoto', '');
+      revalidateTag('connectphoto', 'max');
       revalidatedTags.push('connectphoto');
     } else if (_type === 'experience') {
-      revalidateTag('experience', '');
+      revalidateTag('experience', 'max');
       revalidatedTags.push('experience');
     } else {
-      // If no type specified or unknown type, revalidate everything
+      // If no type specified or unknown type, revalidate all tags
       console.log(`[${timestamp}] ⚠️  Unknown content type, revalidating all tags`);
-      revalidateTag('projects', '');
-      revalidateTag('certifications', '');
-      revalidateTag('connectphoto', '');
-      revalidateTag('experience', '');
+      revalidateTag('projects', 'max');
+      revalidateTag('certifications', 'max');
+      revalidateTag('connectphoto', 'max');
+      revalidateTag('experience', 'max');
       revalidatedTags.push('projects', 'certifications', 'connectphoto', 'experience');
     }
 

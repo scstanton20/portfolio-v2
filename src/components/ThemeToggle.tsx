@@ -1,38 +1,61 @@
-import { useEffect, useState, } from "react";
+import { useEffect, useState } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import Tippy from '@tippyjs/react';
 
 const ThemeToggle = () => {
-    const [theme, setTheme] = useState<string>("dark");
+    const [theme, setTheme] = useState<string | null>(null);
 
+    // Initialize theme after hydration
     useEffect(() => {
-        const storedTheme = localStorage.getItem("theme") as string;
+        // Get theme from localStorage or default to dark
+        const storedTheme = typeof window !== 'undefined' ? localStorage.getItem("theme") : null;
+        const initialTheme = storedTheme || "dark";
 
-        if (!storedTheme) {
-            localStorage.setItem("theme", theme);
+        // Apply theme class to html element
+        const htmlElement = document.documentElement;
+        if (initialTheme === "dark") {
+            htmlElement.classList.add("dark");
         } else {
-            setTheme(storedTheme);
-            storedTheme === "light" ? document.querySelector("html")?.classList.remove("dark") : null;
-            storedTheme === "dark" ? document.querySelector("html")?.classList.add("dark") : null;
+            htmlElement.classList.remove("dark");
         }
+
+        // Save to localStorage if not already set
+        if (typeof window !== 'undefined' && !localStorage.getItem("theme")) {
+            localStorage.setItem("theme", initialTheme);
+        }
+
+        // Only set state once with the initial theme
+        // This setState is necessary for SSR hydration with localStorage
+        // eslint-disable-next-line
+        setTheme(initialTheme);
     }, []);
 
-    const changeTheme = (theme: string) => {
+    const changeTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
 
-        localStorage.setItem("theme", newTheme);
         setTheme(newTheme);
-        newTheme === "light"
-            ? document.querySelector("html")?.classList.remove("dark")
-            : document.querySelector("html")?.classList.add("dark");
+        localStorage.setItem("theme", newTheme);
+
+        // Apply theme class to html element
+        const htmlElement = document.documentElement;
+        if (newTheme === "dark") {
+            htmlElement.classList.add("dark");
+        } else {
+            htmlElement.classList.remove("dark");
+        }
     };
+
+    // Prevent flash of unstyled content
+    if (theme === null) {
+        return null;
+    }
 
     return (
         <Tippy content={"Toggle Light/Dark"} interactive={true} placement={"bottom"} trigger={"mouseenter"}>
             <button
                 aria-label="Theme-Toggle"
                 className="p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer"
-                onClick={() => changeTheme(theme)}
+                onClick={changeTheme}
             >
                 {theme === "light" && <FiSun className="text-black w-6 h-6 xs:w-5 xs:h-5" />}
                 {theme === "dark" && <FiMoon className="text-white w-6 h-6 xs:w-5 xs:h-5" />}

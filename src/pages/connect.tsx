@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import TimeStatus from "../components/talk/TimeStatus";
 import Image from 'next/image';
 import { sanityClient, urlFor } from '../../sanity';
-import { ConnectPhoto } from '../../typings';
+import type { ConnectPhoto } from '../../typings';
 
 interface Props {
   connectphoto: [ConnectPhoto];
@@ -49,7 +49,7 @@ export default function Connect(connectphoto: Props) {
         </div>
         
         {/* Photo for desktop - larger and to the side */}
-        <div className="hidden md:block w-48 h-48 relative flex-shrink-0">
+        <div className="hidden md:block w-48 h-48 relative shrink-0">
           {connectphoto.connectphoto.map(photo => (
             <Image
               key={photo._id}

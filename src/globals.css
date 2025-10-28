@@ -1,8 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500;600;700&display=swap");
-@import 'tippy.js/dist/tippy.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind v4 Theme Configuration */
+@theme {
+    /* Custom breakpoint (445px converted to rem: 445/16 = 27.8125rem) */
+    --breakpoint-xs: 27.8125rem;
+
+    /* Custom animation */
+    --animate-spin-slow: spin 2s linear infinite;
+}
+
+/* Configure dark mode selector */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom animation keyframes */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 html,
 body {

@@ -2,47 +2,50 @@
   "name": "@scstanton20/portfolio-v2",
   "version": "1.6.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "exec eslint ."
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "@portabletext/react": "3.0.18",
-    "@sanity/client": "6.21.1",
-    "@sendgrid/mail": "8.1.3",
-    "@socialgouv/matomo-next": "1.8.0",
-    "@tippyjs/react": "4.2.6",
-    "@types/nprogress": "0.2.3",
-    "autoprefixer": "^10.4.20",
-    "bimap": "0.0.15",
-    "dotenv": "^16.4.5",
-    "next-sanity": "^9.2.0",
-    "nprogress": "0.2.0",
-    "prop-types": "15.8.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-icons": "5.2.1",
-    "react-spring": "9.7.3",
-    "sanity": "3.69.0",
-    "sharp": "^0.33.4",
-    "styled-components": "6.1.11",
-    "tailwindcss": "^3.4.3"
+    "@portabletext/react": "^4.0.3",
+    "@sanity/client": "^7.12.0",
+    "@sanity/image-url": "^1.2.0",
+    "@socialgouv/matomo-next": "^1.10.0",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@tippyjs/react": "^4.2.6",
+    "@types/nprogress": "^0.2.3",
+    "bimap": "^0.0.15",
+    "framer-motion": "^12.23.24",
+    "next": "^16.0.0",
+    "next-sanity": "^11.6.2",
+    "nprogress": "^0.2.0",
+    "postcss": "^8.5.6",
+    "prop-types": "^15.8.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
+    "react-spring": "^10.0.3",
+    "sanity": "^4.11.0",
+    "sharp": "^0.34.4",
+    "styled-components": "^6.1.19",
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
-    "@types/node": "20.12.12",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
-    "@typescript-eslint/eslint-plugin": "7.10.0",
-    "@typescript-eslint/parser": "7.10.0",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.2.3",
-    "eslint-plugin-react": "7.33.2",
-    "typescript": "^5.4.5"
+    "@types/node": "^24.9.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^16.0.0",
+    "eslint-plugin-react": "^7.37.5",
+    "typescript": "^5.9.3"
   },
   "description": "------------ [![ci](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml/badge.svg?branch=main)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml) [![docker-build-push-dev](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml/badge.svg?branch=dev)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml)",
   "main": "next.config.js",
@@ -54,5 +57,6 @@
   "license": "ISC",
   "publishConfig": {
     "@scstanton20:registry": "https://npm.pkg.github.com"
-  }
+  },
+  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8"
 }

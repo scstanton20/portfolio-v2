@@ -1,16 +1,22 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const TimeStatus = () => {
     const [time, setTime] = useState<string>("00:00:00 p.m.");
 
-    function updateTime() {
-        const current = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
-        setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
-        setTimeout(updateTime, 60 * 1000);
-    }
-
     useEffect(() => {
+        const updateTime = () => {
+            const current = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+            setTime(`${current.slice(-11, -6)}${current.slice(-3, -1)}.M.`);
+        };
+
+        // Update immediately
         updateTime();
+
+        // Update every minute
+        const intervalId = setInterval(updateTime, 60 * 1000);
+
+        // Cleanup interval on unmount
+        return () => clearInterval(intervalId);
     }, []);
 
     return (

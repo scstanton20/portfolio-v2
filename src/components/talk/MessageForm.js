@@ -43,7 +43,7 @@ export default function ContactUs() {
 
     if (isValidForm) {
       setButtonText("Sending");
-      const res = await fetch("/api/mail", {
+      const res = await fetch("/api/discord", {
         body: JSON.stringify({
           email: email,
           fullname: fullname,
@@ -79,7 +79,7 @@ export default function ContactUs() {
   return (
     <div className="md:col-span-2 row-span-3 bg-opacity-50 bg-white dark:bg-white/5 rounded-md p-4 border border-zinc-800/50">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="fullname" className="font-bold text-sm dark:text-slate-500 mb-1">Name</label><span className="text-red-500">*</span>
+          <label htmlFor="fullname" className="font-bold text-sm text-black dark:text-white mb-1">Name</label><span className="text-red-500">*</span>
           <input
             type="text"
             value={fullname}
@@ -88,12 +88,12 @@ export default function ContactUs() {
             }}
             name="fullname"
             placeholder="John Doe"
-            className="w-full p-2 mb-4 rounded-md bg-slate-300/50 dark:bg-slate-200/5 text-sm placeholder:text-gray-600 dark:placeholder:text-slate-200/20"
+            className="w-full p-2 mb-4 rounded-md bg-slate-300/50 dark:bg-slate-200/5 text-sm text-black dark:text-white placeholder:text-gray-600 dark:placeholder:text-slate-200/20"
           />
           {errors?.fullname && (
             <p className="text-red-500">Name cannot be empty.</p>
           )}
-          <label htmlFor="email" className="font-bold text-sm dark:text-slate-500 mb-1">E-mail</label> <span className="text-red-500">*</span>
+          <label htmlFor="email" className="font-bold text-sm text-black dark:text-white mb-1">E-mail</label> <span className="text-red-500">*</span>
           <input
             type="email"
             name="email"
@@ -102,12 +102,12 @@ export default function ContactUs() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            className="w-full p-2 mb-4 rounded-md bg-slate-300/50 dark:bg-slate-200/5 text-sm placeholder:text-gray-600 dark:placeholder:text-slate-200/20"
+            className="w-full p-2 mb-4 rounded-md bg-slate-300/50 dark:bg-slate-200/5 text-sm text-black dark:text-white placeholder:text-gray-600 dark:placeholder:text-slate-200/20"
           />
           {errors?.email && (
             <p className="text-red-500">Email cannot be empty.</p>
           )}
-          <label htmlFor="message" className="font-bold text-sm dark:text-slate-500 mb-1">Message<span className="text-red-500">*</span>
+          <label htmlFor="message" className="font-bold text-sm text-black dark:text-white mb-1">Message<span className="text-red-500">*</span>
           </label>
           <textarea
             name="message"
@@ -116,7 +116,7 @@ export default function ContactUs() {
             onChange={(e) => {
               setMessage(e.target.value);
             }}
-            className="w-full p-2 h-36 mb-4 rounded-md bg-slate-300/50 dark:bg-slate-200/5 text-sm placeholder:text-gray-600 dark:placeholder:text-slate-200/20"
+            className="w-full p-2 h-36 mb-4 rounded-md bg-slate-300/50 dark:bg-slate-200/5 text-sm text-black dark:text-white placeholder:text-gray-600 dark:placeholder:text-slate-200/20"
           ></textarea>
           {errors?.message && (
             <p className="text-red-500">Message body cannot be empty.</p>

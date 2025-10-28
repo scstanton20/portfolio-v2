@@ -2,9 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  eslint: { 
-    ignoreDuringBuilds: true, 
-  }, 
   images: {
     remotePatterns: [
       {
@@ -14,7 +11,11 @@ const nextConfig = {
         pathname: '/images/zu8w3jsp/production/**',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+
   async redirects() {
     return [
       {
@@ -33,12 +34,12 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source:'/logout',
+        source: '/logout',
         destination: 'https://auth.scstanton.net/if/flow/default-invalidation-flow/?next=%2F',
-        permanent: true
+        permanent: true,
       },
-      ]
-    },
-  }
+    ];
+  },
+};
 
-  module.exports = nextConfig;
+export default nextConfig;

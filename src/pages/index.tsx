@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { sanityClient, urlFor } from '../../sanity';
-import { Project, Certification } from '../../typings';
+import type { Project, Certification } from '../../typings';
 import Link from "next/link";
 import { BiMap, BiCalendarCheck } from 'react-icons/bi';
 import Tippy from '@tippyjs/react';
@@ -38,7 +38,7 @@ export default function Home({ projects, certifications }: Props) {
                             <div id="parent">
                                 <Tippy className="text-sm flex font-bold justify-between" content={<>{certification.title} <br /> Issued by {certification.issuer} <br /> Received on {certification.receivedDate} </>} interactive={true} placement={'bottom'} trigger={"mouseenter"}>
                                     <button>
-                                        <Image className="rounded-full" src={urlFor(certification.image).url()!} alt="Certification Images" height="50" width="50" />
+                                        <Image className="rounded-full" src={urlFor(certification.image).url()!} alt={`${certification.title} certification badge`} height={50} width={50} />
                                     </button>
                                 </Tippy>
                             </div>
@@ -57,13 +57,13 @@ export default function Home({ projects, certifications }: Props) {
                         <div className="flex mt-auto flex-col gap-1 p-2 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
                             <div className="flex font-bold justify-between text-2xl">
                                 {project.title}
-                                <div className="flex-shrink-0">
+                                <div className="shrink-0">
                                     <Image
                                     className="rounded-full"
                                     src={urlFor(project.image).url()!}
-                                    alt="Project Images"
-                                    width="40"
-                                    height="40"
+                                    alt={`${project.title} icon`}
+                                    width={40}
+                                    height={40}
                                     />
                                 </div>
                             </div>

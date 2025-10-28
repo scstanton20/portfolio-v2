@@ -1,11 +1,11 @@
-import { sanityClient, urlFor } from '../../sanity';
-import type { Project, Certification } from '../../typings';
+import { sanityClient, urlFor } from '../../../sanity';
+import type { Project, Certification } from '../../../typings';
 import Link from "next/link";
 import { BiMap, BiCalendarCheck } from 'react-icons/bi';
 import { PortableText } from "@portabletext/react";
 import Image from 'next/image';
-import { PageTransition } from "../components/PageTransition";
-import CertificationBadge from "../components/CertificationBadge";
+import { PageTransition } from "../../components/PageTransition";
+import CertificationBadge from "../../components/CertificationBadge";
 
 async function getProjects() {
     const projectsquery = `*[_type == "project"]{
@@ -63,6 +63,7 @@ export default async function Home() {
                             title={certification.title}
                             issuer={certification.issuer}
                             receivedDate={certification.receivedDate}
+                            priority
                         />
                     ))}
                 </div>
@@ -73,7 +74,7 @@ export default async function Home() {
                 I enjoy using my technological skills to create innovative solutions to our problems and create new opportunities. Included below are some of these projects.
                 </p>
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-4">
-                    {projects.map(project => (
+                    {projects.map((project, index) => (
                         <Link key={project._id} href={project.projectLink} target="_blank">
                             <div className="flex mt-auto flex-col gap-1 p-2 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
                                 <div className="flex font-bold justify-between text-2xl">
@@ -85,6 +86,7 @@ export default async function Home() {
                                         alt={`${project.title} icon`}
                                         width={40}
                                         height={40}
+                                        priority={index < 2}
                                         />
                                     </div>
                                 </div>

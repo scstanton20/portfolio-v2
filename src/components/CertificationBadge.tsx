@@ -9,9 +9,10 @@ interface CertificationBadgeProps {
     title: string;
     issuer: string;
     receivedDate: string;
+    priority?: boolean;
 }
 
-export default function CertificationBadge({ imageUrl, alt, title, issuer, receivedDate }: CertificationBadgeProps) {
+export default function CertificationBadge({ imageUrl, alt, title, issuer, receivedDate, priority = false }: CertificationBadgeProps) {
     return (
         <div className="flex p-2">
             <Tooltip
@@ -30,6 +31,7 @@ export default function CertificationBadge({ imageUrl, alt, title, issuer, recei
                         alt={alt}
                         height={50}
                         width={50}
+                        priority={priority}
                     />
                 </button>
             </Tooltip>

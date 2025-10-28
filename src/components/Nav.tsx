@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { SiLinkedin } from "react-icons/si";
 import { IoDocumentAttachSharp } from "react-icons/io5";
-import { FiMail } from "react-icons/fi";
 import { FaDocker } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -89,11 +88,6 @@ const Nav = () => {
                         icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
-                        title="Email"
-                        href={"mailto:sam@scstanton.net"}
-                        icon={<FiMail className="w-6 h-6 cursor-pointer" />}
-                    />
-                    <LinkButton
                         title="Website containerized with Docker"
                         href={"http://link.scstanton.net/status"}
                         icon={<FaDocker className="w-6 h-6 cursor-pointer" />}
@@ -160,11 +154,6 @@ const Nav = () => {
                                 href={"http://link.scstanton.net/resume"}
                                 icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
                                  />
-                            <LinkButton
-                                title="Email"
-                                href={"mailto:sam@scstanton.net"}
-                                icon={<FiMail className="w-6 h-6 cursor-pointer" />}
-                            />
                             <LinkButton
                                 title="Website containerized with Docker"
                                 href={"http://link.scstanton.net/status"}

@@ -24,11 +24,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/studio',
-        destination: 'https://scsportfolio.sanity.studio',
-        permanent: true,
-      },
-      {
         source: '/status',
         destination: 'https://status.scstanton.net',
         permanent: true,

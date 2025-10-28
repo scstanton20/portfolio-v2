@@ -1,11 +1,9 @@
-import MessageForm from "../../components/talk/MessageForm";
-import ContactLink from "../../components/talk/ContactLink";
-import { FiMail } from "react-icons/fi";
-import TimeStatus from "../../components/talk/TimeStatus";
+import MessageForm from "../../../components/talk/MessageForm";
+import TimeStatus from "../../../components/talk/TimeStatus";
 import Image from 'next/image';
-import { sanityClient, urlFor } from '../../../sanity';
-import type { ConnectPhoto } from '../../../typings';
-import { PageTransition } from "../../components/PageTransition";
+import { sanityClient, urlFor } from '../../../../sanity';
+import type { ConnectPhoto } from '../../../../typings';
+import { PageTransition } from "../../../components/PageTransition";
 
 async function getConnectPhoto() {
     const connectphotoquery = `*[_type == "connectphoto"]{
@@ -21,7 +19,7 @@ export default async function Connect() {
 
     return (
         <PageTransition>
-            <div className="mt-20 md:mt-36 w-full max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="mt-20 md:mt-36 w-full max-w-4xl mx-auto px-4 sm:px-6 mb-32">
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-8">
                     {/* Photo for mobile - centered and smaller */}
                     <div className="md:hidden w-40 h-40 relative mb-2">
@@ -32,6 +30,7 @@ export default async function Connect() {
                                 src={urlFor(photo.image).url()!}
                                 alt={photo.alt}
                                 fill
+                                sizes="160px"
                                 priority
                             />
                         ))}
@@ -58,6 +57,7 @@ export default async function Connect() {
                                 src={urlFor(photo.image).url()!}
                                 alt={photo.alt}
                                 fill
+                                sizes="192px"
                                 priority
                             />
                         ))}
@@ -67,15 +67,6 @@ export default async function Connect() {
                 <div className="space-y-6">
                     <div className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm">
                         <MessageForm />
-                    </div>
-
-                    <div className="w-full sm:w-72 mx-auto md:mx-0">
-                        <ContactLink
-                            name="sam@scstanton.net"
-                            icon={<FiMail className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />}
-                            link="mailto:sam@scstanton.net"
-                            borderColor="hover:border-gray-400/50"
-                        />
                     </div>
                 </div>
             </div>

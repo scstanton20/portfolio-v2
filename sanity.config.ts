@@ -12,9 +12,7 @@ export default defineConfig({
 
   basePath: '/studio',
 
-  plugins: [
-    structureTool(),
-  ],
+  plugins: [structureTool()],
 
   schema: {
     types: schemaTypes,

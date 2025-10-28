@@ -3,21 +3,18 @@ import createImageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 export const config = {
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-    apiVersion: "2025-10-27",
-    useCdn: process.env.NODE_ENV === "production",
-    perspective: 'published',
-    stega: {
-        enabled: false,
-        studioUrl: '/studio',
-    },
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  apiVersion: '2025-10-27',
+  useCdn: process.env.NODE_ENV === 'production',
+  perspective: 'published',
+  stega: {
+    enabled: false,
+    studioUrl: '/studio',
+  },
 } as const;
 
 export const sanityClient = createClient(config);
 
 export const urlFor = (source: SanityImageSource) =>
-    createImageUrlBuilder(config).image(source);
-
-
-
+  createImageUrlBuilder(config).image(source);

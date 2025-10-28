@@ -19,18 +19,9 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/linkedin',
-        destination: 'https://linkedin.com/in/sc-stanton',
-        permanent: true,
-      },
-      {
-        source: '/status',
-        destination: 'https://status.scstanton.net',
-        permanent: true,
-      },
-      {
         source: '/logout',
-        destination: 'https://auth.scstanton.net/if/flow/default-invalidation-flow/?next=%2F',
+        destination:
+          'https://auth.scstanton.net/if/flow/default-invalidation-flow/?next=%2F',
         permanent: true,
       },
     ];

@@ -7,12 +7,14 @@ export function CustomNavbar(props: any) {
 
   const handleBackToSite = () => {
     // Check for unsaved changes indicators in Sanity Studio
-    const changeIndicators = document.querySelectorAll('[data-ui="ChangeIndicator"]');
+    const changeIndicators = document.querySelectorAll(
+      '[data-ui="ChangeIndicator"]',
+    );
     const hasChanges = changeIndicators.length > 0;
 
     if (hasChanges) {
       const confirmLeave = window.confirm(
-        'You have unsaved changes. Are you sure you want to leave? Any unsaved changes will be lost.'
+        'You have unsaved changes. Are you sure you want to leave? Any unsaved changes will be lost.',
       );
       if (!confirmLeave) {
         return;
@@ -24,10 +26,10 @@ export function CustomNavbar(props: any) {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-slate-800/50 bg-white/60 dark:bg-[#12181d]/60 backdrop-blur-lg">
         <button
           onClick={handleBackToSite}
-          className="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+          className="text-sm font-medium text-black/80 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors"
         >
           ← Back to Site
         </button>

@@ -51,6 +51,10 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Create cache directories with proper permissions
+RUN mkdir -p /app/.next/cache/images && \
+    chown -R nextjs:nodejs /app/.next/cache
+
 USER nextjs
 
 EXPOSE 3000

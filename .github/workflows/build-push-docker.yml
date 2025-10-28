@@ -56,5 +56,3 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ github.repository }}:latest
             ${{ env.REGISTRY }}/${{ github.repository }}:${{ steps.version.outputs.VERSION }}
-        
-      

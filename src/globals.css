@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500;600;700&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500;600;700&display=swap');
+@import 'tailwindcss';
 
 /* Tailwind v4 Theme Configuration */
 @theme {
-    /* Custom breakpoint (445px converted to rem: 445/16 = 27.8125rem) */
-    --breakpoint-xs: 27.8125rem;
+  /* Custom breakpoint (445px converted to rem: 445/16 = 27.8125rem) */
+  --breakpoint-xs: 27.8125rem;
 
-    /* Custom animation */
-    --animate-spin-slow: spin 2s linear infinite;
+  /* Custom animation */
+  --animate-spin-slow: spin 2s linear infinite;
 }
 
 /* Configure dark mode selector */
@@ -15,51 +15,51 @@
 
 /* Custom animation keyframes */
 @keyframes spin-slow {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: Nunito, sans-serif;
-    background: #000;
-    overscroll-behavior-y: none;
+  padding: 0;
+  margin: 0;
+  font-family: Nunito, sans-serif;
+  background: #000;
+  overscroll-behavior-y: none;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .spinner {
-    display: none !important;
+  display: none !important;
 }
 
 .dark .enter {
-    background: rgb(29, 32, 44) !important;
-    color: #fff;
-    border: none;
+  background: rgb(29, 32, 44) !important;
+  color: #fff;
+  border: none;
 }
 
 .enter {
-    background: rgb(245, 245, 245) !important;
-    border: 1px solid rgb(0, 0, 0, 0.1);
+  background: rgb(245, 245, 245) !important;
+  border: 1px solid rgb(0, 0, 0, 0.1);
 }
 
 .dark .tippy-tooltip-content {
-    color: #fff;
+  color: #fff;
 }
 
 .tippy-tooltip-content {
-    color: #000;
+  color: #000;
 }

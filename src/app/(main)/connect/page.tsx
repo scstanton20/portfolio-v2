@@ -1,75 +1,76 @@
-import MessageForm from "../../../components/talk/MessageForm";
-import TimeStatus from "../../../components/talk/TimeStatus";
+import MessageForm from '../../../components/talk/MessageForm';
+import TimeStatus from '../../../components/talk/TimeStatus';
 import Image from 'next/image';
 import { sanityClient, urlFor } from '../../../../sanity';
 import type { ConnectPhoto } from '../../../../typings';
-import { PageTransition } from "../../../components/PageTransition";
+import { PageTransition } from '../../../components/PageTransition';
 
 async function getConnectPhoto() {
-    const connectphotoquery = `*[_type == "connectphoto"]{
+  const connectphotoquery = `*[_type == "connectphoto"]{
         _id,
         alt,
         image
     }`;
-    return await sanityClient.fetch<ConnectPhoto[]>(connectphotoquery);
+  return await sanityClient.fetch<ConnectPhoto[]>(connectphotoquery);
 }
 
 export default async function Connect() {
-    const connectphoto = await getConnectPhoto();
+  const connectphoto = await getConnectPhoto();
 
-    return (
-        <PageTransition>
-            <div className="mt-20 md:mt-36 w-full max-w-4xl mx-auto px-4 sm:px-6 mb-32">
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-8">
-                    {/* Photo for mobile - centered and smaller */}
-                    <div className="md:hidden w-40 h-40 relative mb-2">
-                        {connectphoto.map(photo => (
-                            <Image
-                                key={photo._id}
-                                className="rounded-full shadow-lg object-cover"
-                                src={urlFor(photo.image).url()!}
-                                alt={photo.alt}
-                                fill
-                                sizes="160px"
-                                priority
-                            />
-                        ))}
-                    </div>
+  return (
+    <PageTransition>
+      <div className="mt-20 md:mt-36 w-full max-w-4xl mx-auto px-4 sm:px-6 mb-32">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-8">
+          {/* Photo for mobile - centered and smaller */}
+          <div className="md:hidden w-40 h-40 relative mb-2">
+            {connectphoto.map((photo) => (
+              <Image
+                key={photo._id}
+                className="rounded-full shadow-lg object-cover"
+                src={urlFor(photo.image).url()!}
+                alt={photo.alt}
+                fill
+                sizes="160px"
+                priority
+              />
+            ))}
+          </div>
 
-                    <div className="flex-1 text-center md:text-left">
-                        <h1 className="text-black dark:text-white font-bold text-2xl sm:text-3xl mb-3">
-                            Let&apos;s chat 💬
-                        </h1>
-                        <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base max-w-md mx-auto md:mx-0">
-                            Have an inquiry or want to connect? Feel free to leave a message below, or get in touch via Email.
-                        </p>
-                        <a className="mt-4 justify-center md:justify-start">
-                            <TimeStatus  />
-                        </a>
-                    </div>
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-black dark:text-white font-bold text-2xl sm:text-3xl mb-3">
+              Let&apos;s chat 💬
+            </h1>
+            <p className="text-gray-800 dark:text-gray-200 text-sm sm:text-base max-w-md mx-auto md:mx-0">
+              Have an inquiry or want to connect? Feel free to leave a message
+              below, or get in touch via Email.
+            </p>
+            <a className="mt-4 justify-center md:justify-start">
+              <TimeStatus />
+            </a>
+          </div>
 
-                    {/* Photo for desktop - larger and to the side */}
-                    <div className="hidden md:block w-48 h-48 relative shrink-0">
-                        {connectphoto.map(photo => (
-                            <Image
-                                key={photo._id}
-                                className="rounded-full shadow-lg object-cover"
-                                src={urlFor(photo.image).url()!}
-                                alt={photo.alt}
-                                fill
-                                sizes="192px"
-                                priority
-                            />
-                        ))}
-                    </div>
-                </div>
+          {/* Photo for desktop - larger and to the side */}
+          <div className="hidden md:block w-48 h-48 relative shrink-0">
+            {connectphoto.map((photo) => (
+              <Image
+                key={photo._id}
+                className="rounded-full shadow-lg object-cover"
+                src={urlFor(photo.image).url()!}
+                alt={photo.alt}
+                fill
+                sizes="192px"
+                priority
+              />
+            ))}
+          </div>
+        </div>
 
-                <div className="space-y-6">
-                    <div className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-                        <MessageForm />
-                    </div>
-                </div>
-            </div>
-        </PageTransition>
-    );
+        <div className="space-y-6">
+          <div className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+            <MessageForm />
+          </div>
+        </div>
+      </div>
+    </PageTransition>
+  );
 }

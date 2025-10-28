@@ -1,13 +1,14 @@
 {
   "name": "@scstanton20/portfolio-v2",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "exec eslint ."
+    "lint": "exec eslint .",
+    "format": "npx prettier --write ."
   },
   "browser": {
     "fs": false
@@ -17,7 +18,7 @@
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "@tailwindcss/postcss": "^4.1.16",
-    "framer-motion": "^12.23.24",
+    "motion": "^12.23.24",
     "next": "^16.0.0",
     "next-sanity": "^11.6.2",
     "postcss": "^8.5.6",
@@ -34,6 +35,7 @@
     "@types/react-dom": "^19.2.2",
     "eslint": "^9.38.0",
     "eslint-config-next": "^16.0.0",
+    "prettier": "^3.6.2",
     "typescript": "^5.9.3"
   },
   "description": "------------ [![ci](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml/badge.svg?branch=main)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml) [![docker-build-push-dev](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml/badge.svg?branch=dev)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml)",

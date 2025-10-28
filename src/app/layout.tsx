@@ -1,19 +1,17 @@
-import "../globals.css";
-import { ThemeScript } from "../components/ThemeScript";
+import '../globals.css';
+import { ThemeScript } from '../components/ThemeScript';
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-            <head>
-                <ThemeScript />
-            </head>
-            <body suppressHydrationWarning>
-                {children}
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body suppressHydrationWarning>{children}</body>
+    </html>
+  );
 }

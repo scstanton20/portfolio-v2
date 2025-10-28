@@ -43,7 +43,6 @@ export default async function Home() {
         <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">
           Hey, I&apos;m Sam 👋
         </h1>
-        <h2 className="font-medium text-3xl mb-4">What I Do 💭</h2>
         <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-12">
           I am a Virginia Tech business management graduate with 8 years of
           front-line team management experience, A/V systems integration skills,

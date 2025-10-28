@@ -93,17 +93,17 @@ const Nav = () => {
         <div className="flex flex-row items-center justify-center gap-2 xs:gap-4">
           <LinkButton
             title="LinkedIn"
-            href={'http://link.scstanton.net/linkedin'}
+            href={'https://link.scstanton.net/linkedin'}
             icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
           />
           <LinkButton
             title="Resume"
-            href={'http://link.scstanton.net/resume'}
+            href={'https://link.scstanton.net/resume'}
             icon={<IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />}
           />
           <LinkButton
             title="Website containerized with Docker"
-            href={'http://link.scstanton.net/status'}
+            href={'https://link.scstanton.net/status'}
             icon={<FaDocker className="w-6 h-6 cursor-pointer" />}
           />
         </div>
@@ -167,19 +167,19 @@ const Nav = () => {
               <div className="flex flex-row items-center justify-center gap-6 py-4">
                 <LinkButton
                   title="LinkedIn"
-                  href={'http://link.scstanton.net/linkedin'}
+                  href={'https://link.scstanton.net/linkedin'}
                   icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
                 />
                 <LinkButton
                   title="Resume"
-                  href={'http://link.scstanton.net/resume'}
+                  href={'https://link.scstanton.net/resume'}
                   icon={
                     <IoDocumentAttachSharp className="w-6 h-6 cursor-pointer" />
                   }
                 />
                 <LinkButton
                   title="Website containerized with Docker"
-                  href={'http://link.scstanton.net/status'}
+                  href={'https://link.scstanton.net/status'}
                   icon={<FaDocker className="w-6 h-6 cursor-pointer" />}
                 />
               </div>

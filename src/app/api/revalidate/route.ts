@@ -1,5 +1,6 @@
 import { revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
+import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 
 type SanityWebhookPayload = {
   _type?: string;
@@ -10,18 +11,28 @@ export async function POST(request: NextRequest) {
   const timestamp = new Date().toISOString();
   console.log(`[${timestamp}] 🔔 Webhook received from Sanity`);
 
-  // Validate secret token from env var
-  const secret = request.nextUrl.searchParams.get('secret');
+  // Read the raw body for signature validation
+  const body = await request.text();
+  const signature = request.headers.get(SIGNATURE_HEADER_NAME);
+  const secret = process.env.SANITY_REVALIDATE_SECRET;
 
-  if (secret !== process.env.SANITY_REVALIDATE_SECRET) {
-    console.log(`[${timestamp}] ❌ Invalid token provided`);
-    return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
+  if (!secret) {
+    console.log(`[${timestamp}] ❌ SANITY_REVALIDATE_SECRET not configured`);
+    return NextResponse.json({ message: 'Server configuration error' }, { status: 500 });
   }
 
+  // Validate webhook signature
+  if (!signature || !(await isValidSignature(body, signature, secret))) {
+    console.log(`[${timestamp}] ❌ Invalid webhook signature`);
+    return NextResponse.json({ message: 'Invalid signature' }, { status: 401 });
+  }
+
+  console.log(`[${timestamp}] ✅ Signature validated`);
+
   try {
-    // Parse the webhook payload to determine what to revalidate
-    const body = await request.json().catch(() => ({})) as SanityWebhookPayload;
-    const { _type, _id } = body;
+    // Parse the validated body
+    const payload = JSON.parse(body) as SanityWebhookPayload;
+    const { _type, _id } = payload;
 
     console.log(`[${timestamp}] 📦 Content type: ${_type || 'unknown'}, ID: ${_id || 'unknown'}`);
 

@@ -5,7 +5,7 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 export const config = {
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-  apiVersion: '2025-10-27',
+  apiVersion: '2025-02-19',
   useCdn: process.env.NODE_ENV === 'production',
   perspective: 'published',
   stega: {

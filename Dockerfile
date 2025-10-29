@@ -1,4 +1,4 @@
-FROM node:24.10.0-alpine AS base
+FROM node:24.11.0-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 RUN corepack install && pnpm install --frozen-lockfile
 
-FROM node:24.10.0-alpine AS builder
+FROM node:24.11.0-alpine AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV NODE_ENV=production
@@ -29,7 +29,7 @@ ENV NEXT_PUBLIC_SANITY_PROJECT_ID="zu8w3jsp"
 # Build the Next.js app
 RUN pnpm build
 
-FROM node:24.10.0-alpine AS runner
+FROM node:24.11.0-alpine AS runner
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 

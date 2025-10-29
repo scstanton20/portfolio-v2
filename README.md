@@ -7,7 +7,7 @@
 **Features:**
 
 - Written with the NextJS 16 framework and containerized with Docker to be self-hosted on my servers
-- Built and Pushed to Dockerhub by Github Actions
+- Docker image built and Pushed by Github Actions
 - Uses a Sanity Studio deployment to easily manage all experiences, certifications, and projects without having to change code
 - Integrates Discord to easily forward contact form messages to me
 - Uses TailwindCSS, for easy light/dark theme configuration

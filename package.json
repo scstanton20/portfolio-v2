@@ -14,7 +14,7 @@
     "fs": false
   },
   "dependencies": {
-    "@portabletext/react": "^4.0.3",
+    "@portabletext/react": "^5.0.0",
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "@sanity/webhook": "^4.0.4",

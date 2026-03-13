@@ -1,23 +1,26 @@
+import { draftMode } from 'next/headers';
 import MessageForm from '../../../components/talk/MessageForm';
 import TimeStatus from '../../../components/talk/TimeStatus';
 import Image from 'next/image';
-import { sanityClient, urlFor } from '../../../../sanity';
-import type { ConnectPhoto } from '../../../../typings';
+import { getClient, urlFor } from '../../../../sanity';
+import type { Connectphoto } from '../../../../sanity.types';
 import { PageTransition } from '../../../components/PageTransition';
 
-async function getConnectPhoto() {
+async function getConnectPhoto(isDraftMode: boolean) {
+  const client = getClient(isDraftMode);
   const connectphotoquery = `*[_type == "connectphoto"]{
         _id,
         alt,
         image
     }`;
-  return await sanityClient.fetch<ConnectPhoto[]>(connectphotoquery, {}, {
-    next: { tags: ['connectphoto'] }
+  return await client.fetch<Connectphoto[]>(connectphotoquery, {}, {
+    next: isDraftMode ? { revalidate: 0 } : { tags: ['connectphoto'] }
   });
 }
 
 export default async function Connect() {
-  const connectphoto = await getConnectPhoto();
+  const { isEnabled: isDraftMode } = await draftMode();
+  const connectphoto = await getConnectPhoto(isDraftMode);
 
   return (
     <PageTransition>
@@ -29,8 +32,8 @@ export default async function Connect() {
               <Image
                 key={photo._id}
                 className="rounded-full shadow-lg object-cover"
-                src={urlFor(photo.image).url()!}
-                alt={photo.alt}
+                src={urlFor(photo.image!).url()!}
+                alt={photo.alt ?? ''}
                 fill
                 sizes="160px"
                 priority
@@ -57,8 +60,8 @@ export default async function Connect() {
               <Image
                 key={photo._id}
                 className="rounded-full shadow-lg object-cover"
-                src={urlFor(photo.image).url()!}
-                alt={photo.alt}
+                src={urlFor(photo.image!).url()!}
+                alt={photo.alt ?? ''}
                 fill
                 sizes="192px"
                 priority

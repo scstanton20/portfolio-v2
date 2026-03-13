@@ -1,5 +1,6 @@
-import { sanityClient, urlFor } from '../../../sanity';
-import type { Project, Certification } from '../../../typings';
+import { draftMode } from 'next/headers';
+import { getClient, urlFor } from '../../../sanity';
+import type { Project, Certification } from '../../../sanity.types';
 import Link from 'next/link';
 import { BiMap, BiCalendarCheck } from 'react-icons/bi';
 import { PortableText } from '@portabletext/react';
@@ -7,7 +8,8 @@ import Image from 'next/image';
 import { PageTransition } from '../../components/PageTransition';
 import CertificationBadge from '../../components/CertificationBadge';
 
-async function getProjects() {
+async function getProjects(isDraftMode: boolean) {
+  const client = getClient(isDraftMode);
   const projectsquery = `*[_type == "project"]{
         _id,
         title,
@@ -17,12 +19,13 @@ async function getProjects() {
         description[]{...},
         image
     }`;
-  return await sanityClient.fetch<Project[]>(projectsquery, {}, {
-    next: { tags: ['projects'] }
+  return await client.fetch<Project[]>(projectsquery, {}, {
+    next: isDraftMode ? { revalidate: 0 } : { tags: ['projects'] }
   });
 }
 
-async function getCertifications() {
+async function getCertifications(isDraftMode: boolean) {
+  const client = getClient(isDraftMode);
   const certquery = `*[_type == "certification"]{
         _id,
         title,
@@ -30,15 +33,16 @@ async function getCertifications() {
         issuer,
         receivedDate
     }`;
-  return await sanityClient.fetch<Certification[]>(certquery, {}, {
-    next: { tags: ['certifications'] }
+  return await client.fetch<Certification[]>(certquery, {}, {
+    next: isDraftMode ? { revalidate: 0 } : { tags: ['certifications'] }
   });
 }
 
 export default async function Home() {
+  const { isEnabled: isDraftMode } = await draftMode();
   const [projects, certifications] = await Promise.all([
-    getProjects(),
-    getCertifications(),
+    getProjects(isDraftMode),
+    getCertifications(isDraftMode),
   ]);
 
   return (
@@ -67,11 +71,11 @@ export default async function Home() {
           {certifications.map((certification) => (
             <CertificationBadge
               key={certification._id}
-              imageUrl={urlFor(certification.image).url()!}
+              imageUrl={urlFor(certification.image!).url()!}
               alt={`${certification.title} certification badge`}
-              title={certification.title}
-              issuer={certification.issuer}
-              receivedDate={certification.receivedDate}
+              title={certification.title ?? ''}
+              issuer={certification.issuer ?? ''}
+              receivedDate={certification.receivedDate ?? ''}
               priority
             />
           ))}
@@ -87,14 +91,14 @@ export default async function Home() {
         </p>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-4">
           {projects.map((project, index) => (
-            <Link key={project._id} href={project.projectLink} target="_blank">
+            <Link key={project._id} href={project.projectLink ?? '#'} target="_blank">
               <div className="flex mt-auto flex-col gap-1 p-2 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
                 <div className="flex font-bold justify-between text-2xl">
                   {project.title}
                   <div className="shrink-0">
                     <Image
                       className="rounded-full"
-                      src={urlFor(project.image).url()!}
+                      src={urlFor(project.image!).url()!}
                       alt={`${project.title} icon`}
                       width={40}
                       height={40}
@@ -103,7 +107,7 @@ export default async function Home() {
                   </div>
                 </div>
                 <div className="text-gray-700 dark:text-gray-300 text-sm">
-                  <PortableText value={project.description} />
+                  <PortableText value={project.description ?? []} />
                 </div>
                 <div className="mt-auto">
                   <div className="flex gap-2 flex-row items-center text-sm text-gray-800/70 dark:text-gray-100/70">

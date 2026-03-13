@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { SiLinkedin } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
 import { IoDocumentAttachSharp } from 'react-icons/io5';
 import { FaDocker } from 'react-icons/fa';
 import Link from 'next/link';
@@ -62,7 +62,7 @@ const MobileLandingButton = ({
     </Link>
   );
 };
-const LinkButton = ({ title, icon, href }: any) => {
+const LinkButton = ({ title, icon, href }: { title: string; icon: React.ReactNode; href: string }) => {
   return (
     <Tooltip content={title}>
       <a target="_blank" rel="noreferrer" href={href}>
@@ -94,7 +94,7 @@ const Nav = () => {
           <LinkButton
             title="LinkedIn"
             href={'https://link.scstanton.net/linkedin'}
-            icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
+            icon={<FaLinkedin className="w-6 h-6 cursor-pointer" />}
           />
           <LinkButton
             title="Resume"
@@ -168,7 +168,7 @@ const Nav = () => {
                 <LinkButton
                   title="LinkedIn"
                   href={'https://link.scstanton.net/linkedin'}
-                  icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
+                  icon={<FaLinkedin className="w-6 h-6 cursor-pointer" />}
                 />
                 <LinkButton
                   title="Resume"

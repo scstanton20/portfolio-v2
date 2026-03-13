@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import type { NavbarProps } from 'sanity';
 
-export function CustomNavbar(props: any) {
+export function CustomNavbar(props: NavbarProps) {
   const router = useRouter();
 
   const handleBackToSite = () => {

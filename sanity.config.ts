@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
+import { presentationTool } from 'sanity/presentation';
 import { schemaTypes } from './schemas';
 import { CustomNavbar } from './src/components/studio/CustomNavbar';
 
@@ -12,7 +13,16 @@ export default defineConfig({
 
   basePath: '/studio',
 
-  plugins: [structureTool()],
+  plugins: [
+    structureTool(),
+    presentationTool({
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft/enable',
+        },
+      },
+    }),
+  ],
 
   schema: {
     types: schemaTypes,

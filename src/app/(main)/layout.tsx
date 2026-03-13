@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next';
+import { draftMode } from 'next/headers';
+import { VisualEditing } from 'next-sanity/visual-editing';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 
@@ -18,11 +20,13 @@ export const viewport: Viewport = {
   themeColor: '#000000',
 };
 
-export default function MainLayout({
+export default async function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <div className="text-black dark:text-white flex flex-row justify-center w-full h-full bg-linear-to-bl from-white to-white dark:from-black dark:to-[#0d131f] min-h-screen">
       <Nav />
@@ -30,6 +34,7 @@ export default function MainLayout({
         {children}
         <Footer />
       </div>
+      {isDraftMode && <VisualEditing />}
     </div>
   );
 }

@@ -65,7 +65,7 @@ importers:
         version: 19.2.3(@types/react@19.2.14)
       baseline-browser-mapping:
         specifier: ^2.10.7
-        version: 2.10.7
+        version: 2.11.21
       eslint:
         specifier: ^9.39.4
         version: 9.39.4(jiti@2.6.1)
@@ -2754,6 +2754,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.18.0:
+    resolution: {integrity: sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   adm-zip@0.5.16:
     resolution: {integrity: sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==}
     engines: {node: '>=12.0'}
@@ -2954,14 +2959,15 @@ packages:
   bare-url@2.3.2:
     resolution: {integrity: sha512-ZMq4gd9ngV5aTMa5p9+UfY0b3skwhHELaDkhEHetMdX0LRkW9kzaym4oo/Eh+Ghm0CCDuMTsRIGM/ytUc1ZYmw==}
 
-  baseline-browser-mapping@2.10.7:
-    resolution: {integrity: sha512-1ghYO3HnxGec0TCGBXiDLVns4eCSx4zJpxnHrlqFQajmhfKMQBzUGDdkMK7fUW7PTHTeLf+j87aTuKuuwWzMGw==}
+  baseline-browser-mapping@2.11.21:
+    resolution: {integrity: sha512-uh8vpY/1/YyFkunIDFH/12p7/7VdPKA1hejMVEbdkEaWnUz0Hesvx5EbiU6XxjyHZIOju+ZMbQJkRh+es3/spQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
   basic-ftp@5.2.0:
     resolution: {integrity: sha512-VoMINM2rqJwJgfdHq6RiUudKt2BV+FY5ZFezP/ypmwayk68+NzzAQy4XXLlqsGD4MCzq3DrmNFD/uUmBJuGoXw==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   before-after-hook@4.0.0:
     resolution: {integrity: sha512-q6tR3RPqIB1pMiTRMFcZwuG5T8vwp+vUvEG0vuI6B+Rikh5BfPp2fQ82c925FOs+b0lcFQ8CFrL+KbilfZFhOQ==}
@@ -3545,6 +3551,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -4651,6 +4658,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@3.3.18:
+    resolution: {integrity: sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   nanoid@5.1.6:
     resolution: {integrity: sha512-c7+7RQ+dMB5dPwwCp4ee1/iV/q2P6aK1mTZcfr1BTuVlyW9hJYiMPybJCcnBlQtuSmTIWNeazm/zqNoZSSElBg==}
     engines: {node: ^18 || >=20}
@@ -4667,6 +4679,7 @@ packages:
   next-sanity@12.1.1:
     resolution: {integrity: sha512-7GTIkPcdNPRpr82/E90xQQrydQB4dvK3t5gpNIsx8joYjWTef2AFVIDHT2YJr1obwmXTazLMhLAX3+/2k6ZPdw==}
     engines: {node: '>=20.19 <22 || >=22.12'}
+    deprecated: This version is not recommended for usage with Next.js v16, please see https://www.sanity.io/docs/help/nextjs-16-sanitylive-status
     peerDependencies:
       '@sanity/client': ^7.16.0
       next: ^16.0.0-0
@@ -5617,6 +5630,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -5828,6 +5842,7 @@ packages:
 
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uuid@11.1.0:
@@ -5840,6 +5855,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uuidv7@0.4.4:
@@ -9219,6 +9235,9 @@ snapshots:
 
   acorn@8.16.0: {}
 
+  acorn@8.18.0:
+    optional: true
+
   adm-zip@0.5.16: {}
 
   agent-base@7.1.4: {}
@@ -9433,7 +9452,7 @@ snapshots:
       bare-path: 3.0.0
     optional: true
 
-  baseline-browser-mapping@2.10.7: {}
+  baseline-browser-mapping@2.11.21: {}
 
   basic-ftp@5.2.0: {}
 
@@ -9481,7 +9500,7 @@ snapshots:
 
   browserslist@4.27.0:
     dependencies:
-      baseline-browser-mapping: 2.10.7
+      baseline-browser-mapping: 2.11.21
       caniuse-lite: 1.0.30001751
       electron-to-chromium: 1.5.241
       node-releases: 2.0.26
@@ -9489,7 +9508,7 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.10.7
+      baseline-browser-mapping: 2.11.21
       caniuse-lite: 1.0.30001778
       electron-to-chromium: 1.5.313
       node-releases: 2.0.36
@@ -11284,6 +11303,8 @@ snapshots:
 
   nanoid@3.3.11: {}
 
+  nanoid@3.3.18: {}
+
   nanoid@5.1.6: {}
 
   napi-postinstall@0.3.4: {}
@@ -11322,7 +11343,7 @@ snapshots:
     dependencies:
       '@next/env': 16.1.6
       '@swc/helpers': 0.5.15
-      baseline-browser-mapping: 2.10.7
+      baseline-browser-mapping: 2.11.21
       caniuse-lite: 1.0.30001751
       postcss: 8.4.31
       react: 19.2.4
@@ -11622,7 +11643,7 @@ snapshots:
 
   postcss@8.4.49:
     dependencies:
-      nanoid: 3.3.11
+      nanoid: 3.3.18
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -12454,7 +12475,7 @@ snapshots:
   terser@5.44.0:
     dependencies:
       '@jridgewell/source-map': 0.3.11
-      acorn: 8.16.0
+      acorn: 8.18.0
       commander: 2.20.3
       source-map-support: 0.5.21
     optional: true

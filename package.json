@@ -7,40 +7,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "exec eslint .",
-    "format": "npx prettier --write .",
-    "typegen": "sanity schema extract --enforce-required-fields && sanity typegen generate"
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "typegen": "sanity schema extract --enforce-required-fields --force && sanity typegen generate"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "@portabletext/react": "^6.0.3",
-    "@sanity/client": "^7.17.0",
-    "@sanity/image-url": "^2.0.3",
+    "@portabletext/react": "^8.0.1",
+    "@sanity/client": "^8.6.1",
+    "@sanity/image-url": "^2.1.1",
     "@sanity/webhook": "^4.0.4",
-    "@tailwindcss/postcss": "^4.2.1",
-    "motion": "^12.36.0",
-    "next": "^16.1.6",
-    "next-sanity": "^12.1.1",
-    "postcss": "^8.5.8",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-icons": "^5.6.0",
-    "sanity": "^5.15.0",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.1"
+    "@tailwindcss/postcss": "^4.3.3",
+    "motion": "^13.3.0",
+    "next": "^16.3.5",
+    "next-sanity": "^13.3.4",
+    "postcss": "^8.5.28",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-icons": "^5.7.0",
+    "sanity": "^6.13.2",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "baseline-browser-mapping": "^2.10.7",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "^16.1.6",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "@types/node": "^24.13.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2"
   },
   "description": "------------ [![ci](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml/badge.svg?branch=main)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml) [![docker-build-push-dev](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml/badge.svg?branch=dev)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml)",
   "main": "next.config.mjs",
@@ -50,5 +47,5 @@
   },
   "author": "Sam Stanton",
   "license": "ISC",
-  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
+  "packageManager": "pnpm@12.4.1"
 }

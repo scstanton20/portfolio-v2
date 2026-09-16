@@ -18,7 +18,10 @@ export async function POST(request: NextRequest) {
 
   if (!secret) {
     console.log(`[${timestamp}] ❌ SANITY_REVALIDATE_SECRET not configured`);
-    return NextResponse.json({ message: 'Server configuration error' }, { status: 500 });
+    return NextResponse.json(
+      { message: 'Server configuration error' },
+      { status: 500 },
+    );
   }
 
   // Validate webhook signature
@@ -34,7 +37,9 @@ export async function POST(request: NextRequest) {
     const payload = JSON.parse(body) as SanityWebhookPayload;
     const { _type, _id } = payload;
 
-    console.log(`[${timestamp}] 📦 Content type: ${_type || 'unknown'}, ID: ${_id || 'unknown'}`);
+    console.log(
+      `[${timestamp}] 📦 Content type: ${_type || 'unknown'}, ID: ${_id || 'unknown'}`,
+    );
 
     const revalidatedTags: string[] = [];
 
@@ -53,15 +58,24 @@ export async function POST(request: NextRequest) {
       revalidatedTags.push('experience');
     } else {
       // If no type specified or unknown type, revalidate all tags
-      console.log(`[${timestamp}] ⚠️  Unknown content type, revalidating all tags`);
+      console.log(
+        `[${timestamp}] ⚠️  Unknown content type, revalidating all tags`,
+      );
       revalidateTag('projects', 'max');
       revalidateTag('certifications', 'max');
       revalidateTag('connectphoto', 'max');
       revalidateTag('experience', 'max');
-      revalidatedTags.push('projects', 'certifications', 'connectphoto', 'experience');
+      revalidatedTags.push(
+        'projects',
+        'certifications',
+        'connectphoto',
+        'experience',
+      );
     }
 
-    console.log(`[${timestamp}] ✅ Successfully revalidated tags: ${revalidatedTags.join(', ')}`);
+    console.log(
+      `[${timestamp}] ✅ Successfully revalidated tags: ${revalidatedTags.join(', ')}`,
+    );
 
     return NextResponse.json({
       revalidated: true,
@@ -73,7 +87,7 @@ export async function POST(request: NextRequest) {
     console.error(`[${timestamp}] ❌ Error revalidating:`, err);
     return NextResponse.json(
       { message: 'Error revalidating', error: String(err) },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

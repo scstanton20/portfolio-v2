@@ -19,9 +19,13 @@ async function getProjects(isDraftMode: boolean) {
         description[]{...},
         image
     }`;
-  return await client.fetch<Project[]>(projectsquery, {}, {
-    next: isDraftMode ? { revalidate: 0 } : { tags: ['projects'] }
-  });
+  return await client.fetch<Project[]>(
+    projectsquery,
+    {},
+    {
+      next: isDraftMode ? { revalidate: 0 } : { tags: ['projects'] },
+    },
+  );
 }
 
 async function getCertifications(isDraftMode: boolean) {
@@ -33,9 +37,13 @@ async function getCertifications(isDraftMode: boolean) {
         issuer,
         receivedDate
     }`;
-  return await client.fetch<Certification[]>(certquery, {}, {
-    next: isDraftMode ? { revalidate: 0 } : { tags: ['certifications'] }
-  });
+  return await client.fetch<Certification[]>(
+    certquery,
+    {},
+    {
+      next: isDraftMode ? { revalidate: 0 } : { tags: ['certifications'] },
+    },
+  );
 }
 
 export default async function Home() {
@@ -91,7 +99,11 @@ export default async function Home() {
         </p>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-4">
           {projects.map((project, index) => (
-            <Link key={project._id} href={project.projectLink ?? '#'} target="_blank">
+            <Link
+              key={project._id}
+              href={project.projectLink ?? '#'}
+              target="_blank"
+            >
               <div className="flex mt-auto flex-col gap-1 p-2 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
                 <div className="flex font-bold justify-between text-2xl">
                   {project.title}

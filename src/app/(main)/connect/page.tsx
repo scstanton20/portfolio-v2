@@ -13,9 +13,13 @@ async function getConnectPhoto(isDraftMode: boolean) {
         alt,
         image
     }`;
-  return await client.fetch<Connectphoto[]>(connectphotoquery, {}, {
-    next: isDraftMode ? { revalidate: 0 } : { tags: ['connectphoto'] }
-  });
+  return await client.fetch<Connectphoto[]>(
+    connectphotoquery,
+    {},
+    {
+      next: isDraftMode ? { revalidate: 0 } : { tags: ['connectphoto'] },
+    },
+  );
 }
 
 export default async function Connect() {

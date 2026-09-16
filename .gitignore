@@ -20,9 +20,6 @@ node_modules
 *.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .pnpm-debug.log*
 .vscode
 docker-compose.yml
@@ -33,3 +30,7 @@ docker-compose.yml
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Agents
+AGENTS.md
+CLAUDE.md

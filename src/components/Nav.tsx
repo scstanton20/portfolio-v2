@@ -62,7 +62,15 @@ const MobileLandingButton = ({
     </Link>
   );
 };
-const LinkButton = ({ title, icon, href }: { title: string; icon: React.ReactNode; href: string }) => {
+const LinkButton = ({
+  title,
+  icon,
+  href,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  href: string;
+}) => {
   return (
     <Tooltip content={title}>
       <a target="_blank" rel="noreferrer" href={href}>

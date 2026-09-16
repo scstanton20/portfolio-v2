@@ -23,7 +23,7 @@ async function getProjects(isDraftMode: boolean) {
     projectsquery,
     {},
     {
-      next: isDraftMode ? { revalidate: 0 } : { tags: ['projects'] },
+      next: isDraftMode ? { revalidate: 0 } : { tags: ['project'] },
     },
   );
 }
@@ -41,7 +41,7 @@ async function getCertifications(isDraftMode: boolean) {
     certquery,
     {},
     {
-      next: isDraftMode ? { revalidate: 0 } : { tags: ['certifications'] },
+      next: isDraftMode ? { revalidate: 0 } : { tags: ['certification'] },
     },
   );
 }

@@ -1,11 +1,13 @@
 {
   "name": "@scstanton20/portfolio-v2",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm typegen && next build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
     "start": "next start",
     "lint": "oxlint",
     "format": "oxfmt",
@@ -27,16 +29,15 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-icons": "^5.7.0",
-    "sanity": "^6.13.2",
+    "sanity": "^6.14.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@types/node": "^24.13.5",
+    "@types/node": "^24.13.4",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "oxfmt": "^0.68.0",
     "oxlint": "^1.83.0",
-    "prettier": "^3.9.6",
     "typescript": "^7.0.2"
   },
   "description": "------------ [![ci](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml/badge.svg?branch=main)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker.yml) [![docker-build-push-dev](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml/badge.svg?branch=dev)](https://github.com/scstanton20/portfolio-v2/actions/workflows/build-push-docker-dev.yml)",
@@ -47,5 +48,5 @@
   },
   "author": "Sam Stanton",
   "license": "ISC",
-  "packageManager": "pnpm@12.4.1"
+  "packageManager": "pnpm@12.4.2"
 }

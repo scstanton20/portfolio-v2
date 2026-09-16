@@ -1,11 +1,8 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import type { NavbarProps } from 'sanity';
 
 export function CustomNavbar(props: NavbarProps) {
-  const router = useRouter();
-
   const handleBackToSite = () => {
     // Check for unsaved changes indicators in Sanity Studio
     const changeIndicators = document.querySelectorAll(
@@ -22,15 +19,31 @@ export function CustomNavbar(props: NavbarProps) {
       }
     }
 
-    router.push('/');
+    window.location.href = '/';
   };
 
   return (
     <div>
-      <div className="flex items-center justify-between px-4 py-2 border-b border-slate-800/50 bg-white/60 dark:bg-[#12181d]/60 backdrop-blur-lg">
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '8px 16px',
+          background: '#12181d',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
+        }}
+      >
         <button
           onClick={handleBackToSite}
-          className="text-sm font-medium text-black/80 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors"
+          style={{
+            color: '#ffffff',
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            fontSize: '14px',
+            fontWeight: 500,
+            cursor: 'pointer',
+          }}
         >
           ← Back to Site
         </button>

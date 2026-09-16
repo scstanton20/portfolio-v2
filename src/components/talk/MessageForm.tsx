@@ -7,7 +7,7 @@ export default function ContactUs() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
 
   const [buttonText, setButtonText] = useState('Send');
 
@@ -15,7 +15,7 @@ export default function ContactUs() {
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
   const handleValidation = () => {
-    let tempErrors = {};
+    const tempErrors: Record<string, boolean> = {};
     let isValid = true;
 
     if (fullname.length <= 0) {
@@ -32,16 +32,13 @@ export default function ContactUs() {
     }
 
     setErrors({ ...tempErrors });
-    console.log('errors', errors);
     return isValid;
   };
 
-  //   const [form, setForm] = useState(false);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let isValidForm = handleValidation();
+    const isValidForm = handleValidation();
 
     if (isValidForm) {
       setButtonText('Sending');

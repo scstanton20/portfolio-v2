@@ -1,4 +1,4 @@
-import experience, { position } from './experience';
+import experience, { period, position } from './experience';
 import project from './project';
 import certification from './certification';
 import connectphoto from './connectphoto';
@@ -8,5 +8,6 @@ export const schemaTypes = [
   project,
   certification,
   position,
+  period,
   connectphoto,
 ];

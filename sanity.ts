@@ -1,4 +1,5 @@
 import { createClient } from 'next-sanity';
+import { defineLive } from 'next-sanity/live';
 import {
   createImageUrlBuilder,
   type SanityImageSource,
@@ -36,3 +37,9 @@ export const getClient = (isDraftMode: boolean) =>
 
 export const urlFor = (source: SanityImageSource) =>
   createImageUrlBuilder(config).image(source);
+
+export const { SanityLive } = defineLive({
+  client: sanityClient,
+  serverToken: process.env.SANITY_API_READ_TOKEN,
+  browserToken: process.env.SANITY_API_READ_TOKEN,
+});

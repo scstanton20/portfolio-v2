@@ -54,13 +54,46 @@ export type SanityImageHotspot = {
   width: number;
 };
 
+export type Period = {
+  _type: 'period';
+  startDate: string;
+  current?: boolean;
+  endDate?: string;
+};
+
 export type Position = {
   _type: 'position';
-  title?: string;
+  title: string;
+  employmentType?:
+    | 'fullTime'
+    | 'partTime'
+    | 'internship'
+    | 'seasonal'
+    | 'contract';
   location?: string;
-  startDate?: string;
-  endDate?: string;
-  description?: string;
+  periods: Array<
+    {
+      _key: string;
+    } & Period
+  >;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'normal';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }>;
 };
 
 export type Certification = {
@@ -124,8 +157,8 @@ export type Experience = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  companyName?: string;
-  jobType?: 'fullTime' | 'partTime' | 'Internship' | 'Seasonal';
+  companyName: string;
+  companyUrl?: string;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -133,7 +166,7 @@ export type Experience = {
     crop?: SanityImageCrop;
     _type: 'image';
   };
-  positions?: Array<
+  positions: Array<
     {
       _key: string;
     } & Position
@@ -248,6 +281,7 @@ export type AllSanitySchemaTypes =
   | Connectphoto
   | SanityImageCrop
   | SanityImageHotspot
+  | Period
   | Position
   | Certification
   | Project

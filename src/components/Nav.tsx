@@ -93,6 +93,11 @@ const Nav = () => {
           <ThemeToggle />
           <LandingButton name="Home" link="/" selected={pathname === '/'} />
           <LandingButton
+            name="Experience"
+            link="/experiences"
+            selected={pathname === '/experiences'}
+          />
+          <LandingButton
             name="Connect"
             link="/connect"
             selected={pathname === '/connect'}
@@ -161,6 +166,13 @@ const Nav = () => {
                   name="Home"
                   link="/"
                   selected={pathname === '/'}
+                  onClick={() => setMenuOpen(false)}
+                />
+
+                <MobileLandingButton
+                  name="Experience"
+                  link="/experiences"
+                  selected={pathname === '/experiences'}
                   onClick={() => setMenuOpen(false)}
                 />
 

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { draftMode } from 'next/headers';
 import { VisualEditing } from 'next-sanity/visual-editing';
+import { SanityLive } from '../../../sanity';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 
@@ -34,7 +35,12 @@ export default async function MainLayout({
         {children}
         <Footer />
       </div>
-      {isDraftMode && <VisualEditing />}
+      {isDraftMode && (
+        <>
+          <SanityLive action="refresh" />
+          <VisualEditing />
+        </>
+      )}
     </div>
   );
 }

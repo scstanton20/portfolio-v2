@@ -48,5 +48,5 @@
   },
   "author": "Sam Stanton",
   "license": "ISC",
-  "packageManager": "pnpm@12.4.2"
+  "packageManager": "pnpm@12.6.0"
 }
